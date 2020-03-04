@@ -6,6 +6,10 @@
 
 #include <vector>
 
+#define WHITE 0
+#define BLACK 1
+
+
 #define WHITE_P 0  // pawn pion
 #define BLACK_P 1
 #define WHITE_R 2  // rook tour

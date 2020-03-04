@@ -1,3 +1,6 @@
+#ifndef ALLPAWN_HPP
+#define ALLPAWN_HPP
+
 
 #include <iostream>
 #include <vector>
@@ -15,10 +18,10 @@ class Helper{
 		if(board.board[y][x] == 12) return -1;
 
 		if(board.board[y][x] & 1){
-			return 0;
+			return WHITE;
 		}
 		else{
-			return 1;
+			return BLACK;
 		}
 
 	}
@@ -166,3 +169,5 @@ class Rook {
 	}
 
 };
+
+#endif
