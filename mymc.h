@@ -6,9 +6,6 @@
 
 #include <vector>
 
-#define WHITE 0
-#define BLACK 1
-
 
 #define WHITE_P 0  // pawn pion
 #define BLACK_P 1
@@ -54,6 +51,7 @@ struct chess_move_t {
     void print() {
         printf("(move %d %d %d %d)\n", line_i, col_i, line_f, col_f);
     }
+	
 };
 
 bool is_black(int _piece) {

@@ -8,6 +8,9 @@
 #include "mymc.h"
 
 
+#define WHITE 0
+#define BLACK 1
+
 class Helper{
 
 	public:
@@ -38,7 +41,6 @@ class Helper{
 		if(getColor(x1, y1, board) == getColor(x2, y2, board)) return false;
 
 		return true;
-
 
 	}
 
