@@ -34,6 +34,10 @@ struct chess_piece_t {
 };
 
 struct chess_move_t {
+
+	chess_move_t(int xFrom, int yFrom, int xTo, int yTo) :
+	col_f(xFrom), line_f(yFrom), col_i(xTo), line_i(yTo) {}
+
     int line_i;
     int col_i;
     int line_f;
@@ -278,6 +282,8 @@ struct chess_board_t {
             return true;
         return false;
     }
+
+	
 	
 };
 #endif
