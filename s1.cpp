@@ -7,6 +7,7 @@
 
 #include "mymc.h"
 #include "AllPawn.hpp"
+#include "Pawn.hpp"
 
 /* g++ -std=c++11 s1.cpp */
 
