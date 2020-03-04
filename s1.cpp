@@ -24,6 +24,10 @@ int main(int _ac, char** _av) {
 
 	std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;
 
+	for(auto e : Rook::allPossible(2, 2, chess)){
+		std::cout << "X: " << e.col_i << " y: " << e.line_i << std::endl;
+	}
+
     return 0;
 
 }

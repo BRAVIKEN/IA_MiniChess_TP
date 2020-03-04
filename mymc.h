@@ -1,7 +1,11 @@
 #ifndef MYMC_H
 #define MYMC_H
+
 #include <cstdio>
 #include <cstdlib>
+
+#include <vector>
+
 #define WHITE_P 0  // pawn pion
 #define BLACK_P 1
 #define WHITE_R 2  // rook tour
@@ -70,14 +74,17 @@ bool is_white(int _piece) {
 struct chess_board_t {
     int nbl;
     int nbc;
-    int board[MAX_LINES][MAX_COLS];
+    
+	int board[MAX_LINES][MAX_COLS];
     int turn;
 
     chess_piece_t white_pieces[2 * MAX_LINES];
     int nb_white_pieces;
-    chess_piece_t black_pieces[2 * MAX_LINES];
+    
+	chess_piece_t black_pieces[2 * MAX_LINES];
     int nb_black_pieces;
-    chess_move_t moves[MAX_NB_MOVES];
+    
+	std::vector<chess_move_t> moves;
     int nb_moves;
     int moves_update_turn;
 
@@ -103,6 +110,7 @@ struct chess_board_t {
         board[3][2] = WHITE_P;
         board[4][3] = WHITE_R;
         board[3][3] = WHITE_P;
+
         init_pieces();
         //update_moves();
     }
