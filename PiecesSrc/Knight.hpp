@@ -2,8 +2,8 @@
 #define IA_MINICHESS_TP_KNIGHT_HPP
 
 #include <vector>
-#include "mymc.h"
-#include "AllPawn.hpp"
+#include "../mymc.h"
+#include "Helper.hpp"
 
 class Knight {
    public:

@@ -1,13 +1,17 @@
+#ifndef KING_HPP
+#define KING_HPP
 
-#include "AllPawn.hpp"
+
+#include "../mymc.h"
+#include "Helper.hpp"
 
 #include <vector>
 
-
-
 class King {
 
-	std::vector<chess_move_t> allPossible(int x, int y, chess_board_t const& board){
+	public:
+
+	static std::vector<chess_move_t> allPossible(int x, int y, chess_board_t const& board){
 		
 		std::vector<chess_move_t> toRet;
 
@@ -78,3 +82,5 @@ class King {
 
 
 };
+
+#endif

@@ -6,8 +6,7 @@
 #include <iostream>
 
 #include "mymc.h"
-#include "AllPawn.hpp"
-#include "Pawn.hpp"
+#include "PiecesSrc/AllPieces.hpp"
 
 /* g++ -std=c++11 s1.cpp */
 
@@ -25,7 +24,7 @@ int main(int _ac, char** _av) {
 
 	std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;
 
-	for(auto e : Rook::allPossible(2, 2, chess)){
+	for(auto e : King::allPossible(2, 2, chess)){
 		std::cout << "X: " << e.col_i << " y: " << e.line_i << std::endl;
 	}
 

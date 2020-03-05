@@ -1,6 +1,6 @@
 #include "Knight.hpp"
 
-static std::vector<chess_move_t> Knight::allPossible(int x, int y, chess_board_t const& board) {
+std::vector<chess_move_t> Knight::allPossible(int x, int y, chess_board_t const& board) {
     std::vector<chess_move_t> moves;
     int mx(x), my(y);
     
@@ -95,6 +95,6 @@ static std::vector<chess_move_t> Knight::allPossible(int x, int y, chess_board_t
     return moves;
 }
 
-static bool Knight::isPossible(int x, int y, int xK, int yK, chess_board_t const& board) {
+bool Knight::isPossible(int x, int y, int xK, int yK, chess_board_t const& board) {
     
 }

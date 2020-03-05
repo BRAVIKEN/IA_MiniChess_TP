@@ -30,7 +30,7 @@
 
 #define MAX_NB_MOVES 1000
 
-char *cboard = (char *)"ox.";
+//char *cboard = (char *)"ox.";
 
 struct chess_piece_t {
     int piece;
@@ -51,24 +51,24 @@ struct chess_move_t {
     void print() {
         printf("(move %d %d %d %d)\n", line_i, col_i, line_f, col_f);
     }
-	
+
 };
 
-bool is_black(int _piece) {
-    if (_piece == EMPTY)
-        return false;
-    if (_piece & 1 == 1)
-        return true;
-    return false;
-}
+// bool is_black(int _piece) {
+//     if (_piece == EMPTY)
+//         return false;
+//     if (_piece & 1 == 1)
+//         return true;
+//     return false;
+// }
 
-bool is_white(int _piece) {
-    if (_piece == EMPTY)
-        return false;
-    if (_piece & 1 == 0)
-        return true;
-    return false;
-}
+// bool is_white(int _piece) {
+//     if (_piece == EMPTY)
+//         return false;
+//     if (_piece & 1 == 0)
+//         return true;
+//     return false;
+// }
 
 #define MAX_LINES 8
 #define MAX_COLS 8
@@ -112,6 +112,9 @@ struct chess_board_t {
         board[3][2] = WHITE_P;
         board[4][3] = WHITE_R;
         board[3][3] = WHITE_P;
+
+		///DEBUG
+		//board[2][2] = WHITE_K;
 
         init_pieces();
         //update_moves();
@@ -238,60 +241,60 @@ struct chess_board_t {
         printf("\n");
     }
 
-    bool BLACK_P_can_move_fwd(int _i, int _j) {
-        if (_i == nbl - 1)
-            return false;
-        if (board[_i + 1][_j] != EMPTY)
-            return false;
-        return true;
-    }
+    // bool BLACK_P_can_move_fwd(int _i, int _j) {
+    //     if (_i == nbl - 1)
+    //         return false;
+    //     if (board[_i + 1][_j] != EMPTY)
+    //         return false;
+    //     return true;
+    // }
 
-    bool BLACK_P_can_eat_left(int _i, int _j) {
-        if (_i == (nbl - 1))
-            return false;
-        if (_j == 0)
-            return false;
-        if (is_white(board[_i + 1][_j - 1]))
-            return true;
-        return false;
-    }
-    bool BLACK_P_can_eat_right(int _i, int _j) {
-        if (_i == (nbl - 1))
-            return false;
-        if (_j == (nbc - 1))
-            return false;
-        if (is_white(board[_i + 1][_j + 1]))
-            return true;
-        return false;
-    }
+    // bool BLACK_P_can_eat_left(int _i, int _j) {
+    //     if (_i == (nbl - 1))
+    //         return false;
+    //     if (_j == 0)
+    //         return false;
+    //     if (is_white(board[_i + 1][_j - 1]))
+    //         return true;
+    //     return false;
+    // }
+    // bool BLACK_P_can_eat_right(int _i, int _j) {
+    //     if (_i == (nbl - 1))
+    //         return false;
+    //     if (_j == (nbc - 1))
+    //         return false;
+    //     if (is_white(board[_i + 1][_j + 1]))
+    //         return true;
+    //     return false;
+    // }
 
-    bool WHITE_P_can_move_fwd(int _i, int _j) {
-        if (_i == 0)
-            return false;
-        if (board[_i - 1][_j] != EMPTY)
-            return false;
-        return true;
-    }
+    // bool WHITE_P_can_move_fwd(int _i, int _j) {
+    //     if (_i == 0)
+    //         return false;
+    //     if (board[_i - 1][_j] != EMPTY)
+    //         return false;
+    //     return true;
+    // }
 
-    bool WHITE_P_can_eat_left(int _i, int _j) {
-        if (_i == 0)
-            return false;
-        if (_j == 0)
-            return false;
-        if (is_black(board[_i - 1][_j - 1]))
-            return true;
-        return false;
-    }
+    // bool WHITE_P_can_eat_left(int _i, int _j) {
+    //     if (_i == 0)
+    //         return false;
+    //     if (_j == 0)
+    //         return false;
+    //     if (is_black(board[_i - 1][_j - 1]))
+    //         return true;
+    //     return false;
+    // }
 
-    bool WHITE_P_can_eat_right(int _i, int _j) {
-        if (_i == 0)
-            return false;
-        if (_j == (nbc - 1))
-            return false;
-        if (is_black(board[_i - 1][_j + 1]))
-            return true;
-        return false;
-    }
+    // bool WHITE_P_can_eat_right(int _i, int _j) {
+    //     if (_i == 0)
+    //         return false;
+    //     if (_j == (nbc - 1))
+    //         return false;
+    //     if (is_black(board[_i - 1][_j + 1]))
+    //         return true;
+    //     return false;
+    // }
 
 	
 	
