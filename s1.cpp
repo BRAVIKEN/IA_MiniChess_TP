@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <iostream>
 
-#include "mymc.h"
+#include "mymc.hpp"
 #include "PiecesSrc/AllPieces.hpp"
 
 /* g++ -std=c++11 s1.cpp */

@@ -2,7 +2,7 @@
 #define IA_MINICHESS_TP_KNIGHT_HPP
 
 #include <vector>
-#include "../mymc.h"
+#include "../mymc.hpp"
 #include "Helper.hpp"
 
 class Knight {
