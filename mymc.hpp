@@ -32,6 +32,7 @@
 //char *cboard = (char *)"ox.";
 
 struct chess_piece_t {
+    chess_piece_t(){}
     chess_piece_t(int _piece, int _i, int _j) : piece(_piece), line(_i), col(_j) {}
 
     int piece;

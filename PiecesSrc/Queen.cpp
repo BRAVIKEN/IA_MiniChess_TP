@@ -2,9 +2,9 @@
 
 std::vector<chess_move_t> Queen::allPossible(int x, int y, chess_board_t const& board) {
     std::vector<chess_move_t> toReturn = Rook::allPossible(x, y, board);
-    std::vector<chess_move_t> BishopMoves = Bishop::allPossible(x, y, board);
+    std::vector<chess_move_t> bishopMoves = Bishop::allPossible(x, y, board);
 
-    toReturn.insert(toReturn.end(), BishopMoves.begin(), BishopMoves.end());
+    toReturn.insert(toReturn.end(), bishopMoves.begin(), bishopMoves.end());
 
     return toReturn;
 }
