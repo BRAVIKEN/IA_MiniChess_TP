@@ -2,99 +2,29 @@
 
 std::vector<chess_move_t> Knight::allPossible(int x, int y, chess_board_t const& board) {
     std::vector<chess_move_t> moves;
-    int mx(x), my(y);
-    
-    if (x + 2 <= board.nbc){
-        mx = x + 2;
-        
-        my = y + 1;
-        if (my <= board.nbl && board.board[my][mx] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
 
-        my = y - 1;
-        if (my >= board.nbl && board.board[my][mx] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
-    }
+    if (isPossible(x, y, x + 2, y + 1, board)) moves.emplace_back(x, y, x + 2, y + 1);
+    if (isPossible(x, y, x + 2, y - 1, board)) moves.emplace_back(x, y, x + 2, y - 1);
 
-    if (x - 2 >= 0) {
-        mx = x - 2;
+    if (isPossible(x, y, x - 2, y + 1, board)) moves.emplace_back(x, y, x - 2, y + 1);
+    if (isPossible(x, y, x - 2, y - 1, board)) moves.emplace_back(x, y, x - 2, y - 1);
 
-        my = y + 1;
-        if (my <= board.nbl && board.board[my][mx] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
+    if (isPossible(x, y, x + 1, y + 2, board)) moves.emplace_back(x, y, x + 1, y + 2);
+    if (isPossible(x, y, x - 1, y + 2, board)) moves.emplace_back(x, y, x - 1, y + 2);
 
-        my = y - 1;
-        if (my >= board.nbl && board.board[my][mx] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
-    }
-
-    if (y + 2 <= board.nbl) {
-        my = y + 2;
-
-        mx = x + 1;
-        if (mx <= board.nbc && board.board[mx][my] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
-
-        mx = x - 1;
-        if (mx >= 0 && board.board[mx][my] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
-    }
-
-    if (y - 2 >= 0) {
-        my = y - 2;
-
-        mx = x + 1;
-        if (mx <= board.nbc && board.board[mx][my] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
-
-        mx = x - 1;
-        if (mx >= 0 && board.board[mx][my] != EMPTY) {
-            if(Helper::colorDifference(x, y, mx, my, board)) {
-                moves.emplace_back(x, y, mx, my);
-            }
-        } else {
-            moves.emplace_back(x, y, mx, my);
-        }
-    }
+    if (isPossible(x, y, x + 1, y - 2, board)) moves.emplace_back(x, y, x + 1, y - 2);
+    if (isPossible(x, y, x - 1, y - 2, board)) moves.emplace_back(x, y, x - 1, y - 2);
 
     return moves;
 }
 
-bool Knight::isPossible(int x, int y, int xK, int yK, chess_board_t const& board) {
-    
+bool Knight::isPossible(int x, int y, int xTo, int yTo, chess_board_t const& board) {
+    int diffx(x - xTo), diffy(y - yTo);
+
+    if (xTo >= board.nbc || xTo < 0 || yTo >= board.nbl || yTo < 0) return false;
+    if (board.board[xTo][yTo] != EMPTY && !Helper::colorDifference(x, y, xTo, yTo, board)) return false;
+    if ((diffx == -2 || diffx == 2) && (diffy == -1 || diffy == 1)) return true;
+    if ((diffx == -1 || diffx == 1) && (diffy == -2 || diffy == 2)) return true;
+
+    return false;
 }

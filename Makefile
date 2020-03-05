@@ -1,19 +1,16 @@
+CC = g++
+SRC = s1.cpp PiecesSrc/Knight.cpp
+INCLUDES = mymc.h PiecesSrc/Helper.hpp PiecesSrc/Knight.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp
+OBJ = $(SRC:.cpp=.o)
+CFLAGS = -O2 -Wall -pedantic -std=c++11
+LDFLAGS =
 
-CC=g++
-
-CFLAG= -O2 -Wall -pedantic -std=c++11
-
-
-
-exec.out: s1.o PiecesSrc/Knight.o
-	$(CC) -o exec.out s1.o PiecesSrc/Knight.o
-
-s1.o: s1.cpp mymc.h PiecesSrc/Helper.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp
-	$(CC) -c s1.cpp $(CFLAG)
-
-PiecesSrc/Knight.o: PiecesSrc/Knight.cpp PiecesSrc/Helper.hpp mymc.h
-	$(CC) -c PiecesSrc/Knight.cpp $(CFLAG)
-	mv Knight.o PiecesSrc
-
-clean: 
+chess:    $(OBJ) $(INCLUDES) 
+	$(CC) -o $@ $(OBJ) $(CFLAGS) $(LDFLAGS)
+	
+%.o:	%.cpp
+	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
+	
+clean:
 	rm *.o
+	rm PiecesSrc/*.o
