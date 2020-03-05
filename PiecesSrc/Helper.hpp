@@ -25,8 +25,6 @@ class Helper {
 
 	std::vector<chess_piece_t> getPiecePos(chess_board_t const& board, int piece);
 
-	bool checkBlack(int x, int y, chess_board_t const& board);
-	bool checkWhite(int x, int y, chess_board_t const& board);
 
 };
 
