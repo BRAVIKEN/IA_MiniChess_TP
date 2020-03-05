@@ -1,6 +1,7 @@
 CC = g++
 SRC = s1.cpp PiecesSrc/Knight.cpp
 INCLUDES = mymc.h PiecesSrc/Helper.hpp PiecesSrc/Knight.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp PiecesSrc/Bishop.hpp PiecesSrc/Queen.hpp
+HEADER_ONLY = PiecesSrc/Helper.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp PiecesSrc/Bishop.hpp PiecesSrc/Queen.hpp
 OBJ = $(SRC:.cpp=.o)
 CFLAGS = -O2 -Wall -pedantic -std=c++11
 LDFLAGS =
@@ -8,10 +9,10 @@ LDFLAGS =
 chess.out:    $(OBJ) $(INCLUDES) 
 	$(CC) -o $@ $(OBJ) $(CFLAGS) $(LDFLAGS)
 	
-%.o:	%.cpp %.hpp mymc.h PiecesSrc/Helper.hpp
+%.o:	%.cpp %.hpp mymc.h PiecesSrc/Helper.hpp $(HEADER_ONLY)
 	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
 
-%.o:	%.cpp mymc.h PiecesSrc/Helper.hpp
+%.o:	%.cpp mymc.h PiecesSrc/Helper.hpp $(HEADER_ONLY)
 	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
 
 
