@@ -37,16 +37,7 @@ class Helper{
 	 */
 	static bool colorDifference(int x1, int y1, int x2, int y2, chess_board_t const& board){
 
-		const auto first = getColor(x1, y1, board);
-		const auto second = getColor(x2, y2, board);
-
-		if(first == -1 || second == -1){
-			return false;
-		}
-
-		if(first == second) return false;
-
-		return true;
+		return !(getColor(x1, y1, board) == getColor(x2, y2, board));
 
 	}
 
