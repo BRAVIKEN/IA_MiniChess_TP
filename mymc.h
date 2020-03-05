@@ -33,6 +33,10 @@
 //char *cboard = (char *)"ox.";
 
 struct chess_piece_t {
+
+	chess_piece_t(int _piece, int _i, int _j) :
+	piece(_piece), line(_i), col(_j) {}
+
     int piece;
     int line;
     int col;
@@ -80,14 +84,31 @@ struct chess_board_t {
 	int board[MAX_LINES][MAX_COLS];
     int turn;
 
-    chess_piece_t white_pieces[2 * MAX_LINES];
-    int nb_white_pieces;
+    // chess_piece_t white_pieces[2 * MAX_LINES];
+    // int nb_white_pieces;
+
+	/**
+	 * Quelques idées sur comment utiliser ces data.
+	 * Ces vecteurs représentes toutes les pieces de chaque joueurs
+	 * (en plus de stoquer les pieces dans board)
+	 * 
+	 * Lors d'un tour de joueur, on peut lister la liste de tout les coups possible
+	 * en parcourant son tableau de piece respectif (white_pieces pour blanc par exemple)
+	 * 
+	 * On loop dans le tableau et pour chaque piece on appelle
+	 * allPossible dessus.
+	 * (Note je rajoute une fonction dans allPieces qui s'occupe de faire le bon appel)
+	 * 
+	 */
+	std::vector<chess_piece_t> white_pieces;
     
-	chess_piece_t black_pieces[2 * MAX_LINES];
-    int nb_black_pieces;
-    
+	// chess_piece_t black_pieces[2 * MAX_LINES];
+    // int nb_black_pieces;
+	
+	std::vector<chess_piece_t> black_pieces;
+
 	std::vector<chess_move_t> moves;
-    int nb_moves;
+    //int nb_moves;
     int moves_update_turn;
 
     void init_silverman_4x5() {
@@ -96,6 +117,7 @@ struct chess_board_t {
         for (int i = 0; i < MAX_LINES; i++)
             for (int j = 0; j < MAX_COLS; j++)
                 board[i][j] = EMPTY;
+
         board[0][0] = BLACK_R;
         board[1][0] = BLACK_P;
         board[0][1] = BLACK_Q;
@@ -121,22 +143,23 @@ struct chess_board_t {
     }
 
     void add_black_piece(int _piece, int _i, int _j) {
-        black_pieces[nb_black_pieces].piece = _piece;
-        black_pieces[nb_black_pieces].line = _i;
-        black_pieces[nb_black_pieces].col = _j;
-        nb_black_pieces++;
+		black_pieces.emplace_back(_piece, _i, _j);
+        // black_pieces[nb_black_pieces].piece = _piece;
+        // black_pieces[nb_black_pieces].line = _i;
+        // black_pieces[nb_black_pieces].col = _j;
+        // nb_black_pieces++;
     }
 
     void add_white_piece(int _piece, int _i, int _j) {
-        white_pieces[nb_white_pieces].piece = _piece;
-        white_pieces[nb_white_pieces].line = _i;
-        white_pieces[nb_white_pieces].col = _j;
-        nb_white_pieces++;
+		white_pieces.emplace_back(_piece, _i, _j);
+        // white_pieces[nb_white_pieces].piece = _piece;
+        // white_pieces[nb_white_pieces].line = _i;
+        // white_pieces[nb_white_pieces].col = _j;
+        // nb_white_pieces++;
     }
 
     void init_pieces() {
-        nb_white_pieces = 0;
-        nb_black_pieces = 0;
+
         for (int i = 0; i < nbl; i++)
             for (int j = 0; j < nbc; j++) {
                 if (board[i][j] == BLACK_P)
