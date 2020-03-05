@@ -30,7 +30,6 @@
 *.exe
 *.out
 *.app
-chess
 
 .DS_Store
 .vs*
