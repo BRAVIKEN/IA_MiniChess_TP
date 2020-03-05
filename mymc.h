@@ -114,7 +114,7 @@ struct chess_board_t {
         board[3][3] = WHITE_P;
 
 		///DEBUG
-		//board[2][2] = WHITE_K;
+		board[3][1] = WHITE_B;
 
         init_pieces();
         //update_moves();
@@ -233,6 +233,9 @@ struct chess_board_t {
                     printf("Q");
                 else if (board[i][j] == WHITE_Q)
                     printf("\e[34mq\e[39m");
+                //degub 
+                    else if (board[i][j] == -1)
+                        printf("\e[31m#\e[39m");
                 else
                     printf(".");
             }

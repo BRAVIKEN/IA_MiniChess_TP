@@ -1,6 +1,6 @@
 CC = g++
 SRC = s1.cpp PiecesSrc/Knight.cpp
-INCLUDES = mymc.h PiecesSrc/Helper.hpp PiecesSrc/Knight.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp
+INCLUDES = mymc.h PiecesSrc/Helper.hpp PiecesSrc/Knight.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp PiecesSrc/Bishop.hpp
 OBJ = $(SRC:.cpp=.o)
 CFLAGS = -O2 -Wall -pedantic -std=c++11
 LDFLAGS =
