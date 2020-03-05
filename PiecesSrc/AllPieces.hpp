@@ -9,5 +9,6 @@
 #include "Rook.hpp"
 #include "Knight.hpp"
 #include "Bishop.hpp"
+#include "Queen.hpp"
 
 #endif

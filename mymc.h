@@ -114,7 +114,7 @@ struct chess_board_t {
         board[3][3] = WHITE_P;
 
 		///DEBUG
-		board[3][1] = WHITE_B;
+		board[3][1] = WHITE_Q;
 
         init_pieces();
         //update_moves();
