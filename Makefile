@@ -5,12 +5,16 @@ OBJ = $(SRC:.cpp=.o)
 CFLAGS = -O2 -Wall -pedantic -std=c++11
 LDFLAGS =
 
-chess:    $(OBJ) $(INCLUDES) 
+chess.out:    $(OBJ) $(INCLUDES) 
 	$(CC) -o $@ $(OBJ) $(CFLAGS) $(LDFLAGS)
 	
-%.o:	%.cpp
+%.o:	%.cpp %.hpp mymc.h PiecesSrc/Helper.hpp
 	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
-	
+
+%.o:	%.cpp mymc.h PiecesSrc/Helper.hpp
+	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
+
+
 clean:
 	rm *.o
 	rm PiecesSrc/*.o
