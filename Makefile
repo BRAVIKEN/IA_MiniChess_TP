@@ -1,7 +1,37 @@
 CC = g++
-SRC = s1.cpp mymc.cpp PiecesSrc/AllPieces.cpp PiecesSrc/Helper.cpp PiecesSrc/Knight.cpp PiecesSrc/Pawn.cpp PiecesSrc/King.cpp PiecesSrc/Bishop.cpp PiecesSrc/Queen.cpp PiecesSrc/Rook.cpp
-INCLUDES = mymc.hpp PiecesSrc/AllPieces.hpp PiecesSrc/Helper.hpp PiecesSrc/Knight.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp PiecesSrc/Bishop.hpp PiecesSrc/Queen.hpp PiecesSrc/Rook.hpp
-HEADER_ONLY = PiecesSrc/AllPieces.hpp PiecesSrc/Helper.hpp PiecesSrc/Pawn.hpp PiecesSrc/King.hpp PiecesSrc/Bishop.hpp PiecesSrc/Queen.hpp PiecesSrc/Rook.hpp
+SRC = s1.cpp \
+	mymc.cpp \
+	GameHelper.cpp \
+	PiecesSrc/AllPieces.cpp \
+	PiecesSrc/Helper.cpp \
+	PiecesSrc/Knight.cpp \
+	PiecesSrc/Pawn.cpp \
+	PiecesSrc/King.cpp \
+	PiecesSrc/Bishop.cpp \
+	PiecesSrc/Queen.cpp \
+	PiecesSrc/Rook.cpp
+
+INCLUDES = mymc.hpp \
+		GameHelper.hpp \
+		PiecesSrc/AllPieces.hpp \
+		PiecesSrc/Helper.hpp \
+		PiecesSrc/Knight.hpp \
+		PiecesSrc/Pawn.hpp \
+		PiecesSrc/King.hpp \
+		PiecesSrc/Bishop.hpp \
+		PiecesSrc/Queen.hpp \
+		PiecesSrc/Rook.hpp
+
+HEADER_ONLY = mymc.hpp \
+			GameHelper.hpp \
+			PiecesSrc/AllPieces.hpp \
+			PiecesSrc/Helper.hpp \
+			PiecesSrc/Pawn.hpp \
+			PiecesSrc/King.hpp \
+			PiecesSrc/Bishop.hpp \
+			PiecesSrc/Queen.hpp \
+			PiecesSrc/Rook.hpp
+
 OBJ = $(SRC:.cpp=.o)
 CFLAGS = -O2 -Wall -pedantic -std=c++11
 LDFLAGS =
