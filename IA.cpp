@@ -16,7 +16,8 @@ chess_move_t IA::MC(chess_board_t const& board, int color, int playoutNB){
 				for(auto i(0); i<playoutNB; ++i){
 					//play a game
 					for(auto j(0); j<MAX_NB_MOVES; ++j){
-						
+						//tmpBoard.print_board_with_color();
+
 						std::vector<chess_move_t> actualMoves;
 						chess_piece_t ennemyKing;
 
@@ -42,11 +43,28 @@ chess_move_t IA::MC(chess_board_t const& board, int color, int playoutNB){
 
 						}
 
-
+						//checking if it's won
 						if(GameHelper::checkBlack(ennemyKing.col,ennemyKing.line,tmpBoard)){
 							currentScore++;
 							break;
 						}
+
+						//Let the black player play
+							actualMoves.clear();
+							for(const auto &k : tmpBoard.black_pieces){
+								for(const auto &l : AllPieces::allPossible(k,tmpBoard)){
+									actualMoves.emplace_back(l);
+								}
+							}
+
+							choosedMove = actualMoves[rand()%actualMoves.size()];
+
+							
+							//play a turn
+							tmpBoard.board[choosedMove.line_i][choosedMove.col_i] = tmpBoard.board[choosedMove.line_f][choosedMove.col_f];
+							tmpBoard.board[choosedMove.line_f][choosedMove.col_f] = EMPTY;
+
+
 					}
 					tmpBoard = board;
 				}
