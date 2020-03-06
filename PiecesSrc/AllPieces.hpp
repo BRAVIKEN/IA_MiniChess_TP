@@ -20,7 +20,10 @@ class AllPieces {
 		 * 
 		 * @return A vector containing all the possible moves of the piece
 		 */
-	    static std::vector<chess_move_t> allPossible(chess_piece_t const& piece, chess_board_t const& board);
+	    static std::vector<chess_move_t> allPossibleWhite(chess_piece_t const& piece, chess_board_t const& board);
+	    static std::vector<chess_move_t> allPossibleBlack(chess_piece_t const& piece, chess_board_t const& board);
+
+
 };
 
 #endif

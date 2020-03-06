@@ -6,7 +6,7 @@ chess_move_t IA::MC(chess_board_t const& board, int color, int playoutNB){
 
 	if(color == WHITE){
 		for(const auto &currentPiece : board.white_pieces){
-			for(const auto &currentMove : AllPieces::allPossible(currentPiece,board)){ //for every move
+			for(const auto &currentMove : AllPieces::allPossibleWhite(currentPiece,board)){ //for every move
 				int currentScore = 0;
 
 				auto tmpBoard = board;
@@ -22,7 +22,7 @@ chess_move_t IA::MC(chess_board_t const& board, int color, int playoutNB){
 						chess_piece_t ennemyKing;
 
 						for(const auto &k : tmpBoard.white_pieces){
-							for(const auto &l : AllPieces::allPossible(k,tmpBoard)){
+							for(const auto &l : AllPieces::allPossibleWhite(k,tmpBoard)){
 								actualMoves.emplace_back(l);
 							}
 						}
@@ -52,7 +52,7 @@ chess_move_t IA::MC(chess_board_t const& board, int color, int playoutNB){
 						//Let the black player play
 							actualMoves.clear();
 							for(const auto &k : tmpBoard.black_pieces){
-								for(const auto &l : AllPieces::allPossible(k,tmpBoard)){
+								for(const auto &l : AllPieces::allPossibleBlack(k,tmpBoard)){
 									actualMoves.emplace_back(l);
 								}
 							}

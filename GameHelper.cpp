@@ -150,10 +150,10 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
     }
 
     /*pawn*/
-    if(board.board[y-1][x-1] == WHITE_P){
+    if(board.board[y-1][x-1] == BLACK_P){
     	return true;
     }
-    if(board.board[y-1][x+1] == WHITE_P){
+    if(board.board[y-1][x+1] == BLACK_P){
     	return true;
     }
 

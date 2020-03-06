@@ -54,8 +54,8 @@ struct chess_move_t {
     int line_i;
     int old_piece;
 
-    void print() {
-        printf("(move %d %d %d %d)\n", line_i, col_i, line_f, col_f);
+    void print() const {
+        printf("(move x: %d y: %d TO x: %d y: %d)\n", col_f, line_f, col_i, line_i);
     }
 };
 

@@ -10,7 +10,7 @@ std::vector<chess_move_t> Pawn::allPossibleWhite(int x, int y, chess_board_t con
 
         //eat left
         if (x != 0 && Helper::getColor(x - 1, y - 1, board) == BLACK)
-            toReturn.emplace_back(x, y, x - 1, y - 1), board.board[y-1][x-1];
+            toReturn.emplace_back(x, y, x - 1, y - 1, board.board[y-1][x-1]);
 
         //eat right
         if (x != (board.nbc - 1) && Helper::getColor(x + 1, y - 1, board) == BLACK)
@@ -49,4 +49,5 @@ std::vector<chess_move_t> Pawn::allPossible(int x, int y, chess_board_t const& b
 }
 
 bool Pawn::isPossible(int x, int y, int xTo, int yTo, chess_board_t const& board) {
+	return false;
 }
