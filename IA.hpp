@@ -18,9 +18,9 @@ class IA {
 		/**
 		 * Play a random game.
 		 * 
-		 * @return True if white won, False if black won.
+		 * @return 0 if white won, 1 if black won et -1 si match nul ou timeout.
 		 */
-		static bool randomGame(chess_board_t& board);
+		static int randomGame(chess_board_t& board);
 
 
 		/*
