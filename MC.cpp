@@ -4,6 +4,7 @@ chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int st
     int bestScore(0);  //best number of winned game for a position
     chess_move_t bestMove;
     std::vector<std::pair<chess_board_t,chess_move_t>> allBoards;
+    
     if (color == WHITE) {
         IA::getBoardsFromDepth(board, startDepth, startDepth, chess_move_t(), allBoards, WHITE);
         for(auto &actualBoardAndMove : allBoards){

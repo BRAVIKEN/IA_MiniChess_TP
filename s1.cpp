@@ -24,18 +24,18 @@ int main(int _ac, char** _av) {
 
 	//IA::randomGame(chess);
 	while(1){
-		/*std::cout << "BLANC A JOUE" << std::endl;
+		std::cout << "BLANC A JOUE" << std::endl;
 		chess_move_t w= IA::MC(chess,WHITE,100,1);
 		GameHelper::play(w,chess);
 		chess.print_board_with_color();
-		if(!IA::whitePlayOneRandomMove(chess) || !IA::blackPlayOneRandomMove(chess)){
+		if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
 			break;
-		}*/
+		}
 		std::cout << "NOIR A JOUE" << std::endl;
 		chess_move_t b= IA::MC(chess,BLACK,100,1);
 		GameHelper::play(b,chess);
 		chess.print_board_with_color();
-		if(!IA::whitePlayOneRandomMove(chess) || !IA::blackPlayOneRandomMove(chess)){
+		if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
 			break;
 		}
 	}
