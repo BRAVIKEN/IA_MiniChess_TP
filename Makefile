@@ -2,6 +2,7 @@ CC = g++
 SRC = s1.cpp \
 	mymc.cpp \
 	GameHelper.cpp \
+	IA.cpp \
 	PiecesSrc/AllPieces.cpp \
 	PiecesSrc/Helper.cpp \
 	PiecesSrc/Knight.cpp \
@@ -13,6 +14,7 @@ SRC = s1.cpp \
 
 INCLUDES = mymc.hpp \
 		GameHelper.hpp \
+		IA.hpp \
 		PiecesSrc/AllPieces.hpp \
 		PiecesSrc/Helper.hpp \
 		PiecesSrc/Knight.hpp \
@@ -24,6 +26,7 @@ INCLUDES = mymc.hpp \
 
 HEADER_ONLY = mymc.hpp \
 			GameHelper.hpp \
+			IA.hpp \
 			PiecesSrc/AllPieces.hpp \
 			PiecesSrc/Helper.hpp \
 			PiecesSrc/Pawn.hpp \

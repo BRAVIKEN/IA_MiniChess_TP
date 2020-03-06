@@ -25,7 +25,7 @@ void chess_board_t::init_silverman_4x5() {
     board[3][3] = WHITE_P;
 
     ///DEBUG
-    board[1][1] = WHITE_B;
+    //board[1][1] = WHITE_B;
 
     init_pieces();
     //update_moves();

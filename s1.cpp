@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "mymc.hpp"
+#include "IA.hpp"
 #include "PiecesSrc/AllPieces.hpp"
 
 /* g++ -std=c++11 s1.cpp */
@@ -13,7 +14,7 @@
 int main(int _ac, char** _av) {
 
     srand(1);
-
+    srand(time(NULL));
 
     chess_board_t chess;
     Helper h;
@@ -31,9 +32,12 @@ int main(int _ac, char** _av) {
 		chess.board[e.line_i][e.col_i] = -1;
 	}*/
 
+	chess_move_t m = IA::MC(chess,WHITE,1000);
+	chess.board[m.line_i][m.col_i] = chess.board[m.line_f][m.col_f];
+	chess.board[m.line_f][m.col_f] = EMPTY;
 	chess.print_board_with_color();
 
-	std::cout << h.checkWhite(2,0,chess) << std::endl;
+	//std::cout << h.checkWhite(2,0,chess) << std::endl;
 
     return 0;
 }
