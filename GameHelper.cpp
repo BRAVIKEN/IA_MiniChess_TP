@@ -4,46 +4,88 @@
 
 
 bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
+	
+	bool first;
 
 	/*diag*/
+	first = true;
 	for (int i(x - 1), j(y - 1); i >= 0 && j >= 0; --i, --j) {
+		if(first){
+			if(board.board[j][i] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
         	return true;
     }
 
+	first = true;
     for (int i(x - 1), j(y + 1); i >= 0 && j < board.nbl; --i, ++j) {
+		if(first){
+			if(board.board[j][i] == WHITE_K) return true;
+			first = false;
+		}
     	if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
         	return true;
     }
 
+	first = true;
     for (int i(x + 1), j(y - 1); i < board.nbc && j >= 0; ++i, --j) {
+		if(first){
+			if(board.board[j][i] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
         	return true;
     }
 
+	first = true;
     for (int i(x + 1), j(y + 1); i < board.nbc && j < board.nbl; ++i, ++j) {
+		if(first){
+			if(board.board[j][i] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
         	return true;
     }
 
 
     /*line*/
+	first = true;
     for (int i(x + 1); i < board.nbc; ++i) {
+		if(first){
+			if(board.board[y][i] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[y][i] == WHITE_Q || board.board[y][i] == WHITE_R)
         	return true;
     }
 
+	first = true;
     for (int i(x - 1); i >= 0; --i) {
+		if(first){
+			if(board.board[y][i] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[y][i] == WHITE_Q || board.board[y][i] == WHITE_R)
         	return true;
     }
 
+	first = true;
     for (int i(y + 1); i < board.nbl; ++i) {
+		if(first){
+			if(board.board[i][x] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[i][x] == WHITE_Q || board.board[i][x] == WHITE_R)
         	return true;
     }
 
+	first = true;
     for (int i(y - 1); i >= 0; --i) {
+		if(first){
+			if(board.board[i][x] == WHITE_K) return true;
+			first = false;
+		}
         if (board.board[i][x] == WHITE_Q || board.board[i][x] == WHITE_R)
         	return true;
     }
@@ -86,44 +128,87 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 
 	/*diag*/
+
+	bool first;
+
+	first = true;
 	for (int i(x - 1), j(y - 1); i >= 0 && j >= 0; --i, --j) {
-        if (board.board[j][i] == BLACK_Q && board.board[j][i] == BLACK_B)
+		if(first){
+			if(board.board[j][i] == BLACK_K) return true;
+			first = false;
+		}
+        if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
         	return true;
     }
 
+	first = true;
     for (int i(x - 1), j(y + 1); i >= 0 && j < board.nbl; --i, ++j) {
-    	if (board.board[j][i] == BLACK_Q && board.board[j][i] == BLACK_B)
+		if(first){
+			if(board.board[j][i] == BLACK_K) return true;
+			first = false;
+		}
+    	if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
         	return true;
     }
 
+	first = true;
     for (int i(x + 1), j(y - 1); i < board.nbc && j >= 0; ++i, --j) {
-        if (board.board[j][i] == BLACK_Q && board.board[j][i] == BLACK_B)
+		if(first){
+			if(board.board[j][i] == BLACK_K) return true;
+			first = false;
+		}
+        if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
         	return true;
     }
 
+	first = true;
     for (int i(x + 1), j(y + 1); i < board.nbc && j < board.nbl; ++i, ++j) {
-        if (board.board[j][i] == BLACK_Q && board.board[j][i] == BLACK_B)
+		if(first){
+			if(board.board[j][i] == BLACK_K) return true;
+			first = false;
+		}
+        if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
         	return true;
     }
 
 
     /*line*/
+	first = true;
     for (int i(x + 1); i < board.nbc; ++i) {
+		if(first){
+			if(board.board[y][i] == BLACK_K) return true;
+			first = false;
+		}
         if (board.board[y][i] == BLACK_Q || board.board[y][i] == BLACK_R)
         	return true;
     }
 
+	first = true;
     for (int i(x - 1); i >= 0; --i) {
+		if(first){
+			if(board.board[y][i] == BLACK_K) return true;
+			first = false;
+		}
         if (board.board[y][i] == BLACK_Q || board.board[y][i] == BLACK_R)
         	return true;
     }
 
+	first = true;
     for (int i(y + 1); i < board.nbl; ++i) {
+		if(first){
+			if(board.board[i][x] == BLACK_K) return true;
+			first = false;
+		}
         if (board.board[i][x] == BLACK_Q || board.board[i][x] == BLACK_R)
         	return true;
     }
 
+	first = true;
     for (int i(y - 1); i >= 0; --i) {
+		if(first){
+			if(board.board[i][x] == BLACK_K) return true;
+			first = false;
+		}
         if (board.board[i][x] == BLACK_Q || board.board[i][x] == BLACK_R)
         	return true;
     }
