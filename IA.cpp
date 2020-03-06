@@ -1,5 +1,70 @@
 #include "IA.hpp"
 
+#include "GameHelper.hpp"
+#include <vector>
+
+
+
+bool IA::whitePlayOneRandomMove(chess_board_t const& board){
+
+	std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesWhite(board);
+
+	//This mean white lost
+	if(possibleMoves.empty())
+		return false;
+
+	int selectedIndex = rand()%possibleMoves;
+
+	GameHelper::play(possibleMoves[selectedIndex], board);
+
+	return true;
+
+}
+
+bool IA::blackPlayOneRandomMove(chess_board_t const& board){
+
+	std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesBlack(board);
+
+	//This mean white lost
+	if(possibleMoves.empty())
+		return false;
+
+	int selectedIndex = rand()%possibleMoves;
+
+	GameHelper::play(possibleMoves[selectedIndex], board);
+
+	return true;
+
+}
+
+
+bool IA::randomGame(chess_board_t const& board){
+
+	//true = white, false = black
+	bool turn(true);
+
+	while(1){
+
+		if(turn){
+			if(!whitePlayOneRandomMove(board)){
+				//black won
+				return false;
+			}
+		}
+		else{
+			if(!blackPlayOneRandomMove(board)){
+				//white won
+				return true;
+			}
+		}
+
+
+	}
+
+
+
+}
+
 chess_move_t IA::MC(chess_board_t const& board, int color, int playoutNB){
 	int bestScore = 0; //best number of winned game for a position
 	chess_move_t bestMove;
