@@ -22,6 +22,7 @@ int main(int _ac, char** _av) {
     chess.init_silverman_4x5();
     chess.print_board_with_color();
 
+	IA::randomGame(chess);
 	
 
 	//std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;

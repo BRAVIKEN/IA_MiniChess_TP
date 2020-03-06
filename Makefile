@@ -3,6 +3,7 @@ SRC = s1.cpp \
 	mymc.cpp \
 	GameHelper.cpp \
 	IA.cpp \
+	MC.cpp \
 	PiecesSrc/AllPieces.cpp \
 	PiecesSrc/Helper.cpp \
 	PiecesSrc/Knight.cpp \
