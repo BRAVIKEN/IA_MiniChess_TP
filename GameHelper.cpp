@@ -161,61 +161,13 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 }
 
 std::vector<chess_move_t> GameHelper::AllPossibleMovesBlack(chess_board_t& board) {
-    
 	std::vector<chess_move_t> moves;
 
     for (auto& black: board.black_pieces) {
-        switch (black.piece) {
-            case PAWN:
-                for (auto& piece: Pawn::allPossibleBlack(black.line, black.col, board)) {
-                    play(piece, board);
-                    if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case ROOK:
-                for (auto& piece: Rook::allPossible(black.line, black.col, board)) {
-                    play(piece, board);
-                    if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case KNIGHT:
-                for (auto& piece: Knight::allPossible(black.line, black.col, board)) {
-                    play(piece, board);
-                    if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case BISHOP:
-                for (auto& piece: Bishop::allPossible(black.line, black.col, board)) {
-                    play(piece, board);
-                    if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case KING:
-                for (auto& piece: King::allPossible(black.line, black.col, board)) {
-                    play(piece, board);
-                    if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case QUEEN:
-                for (auto& piece: Queen::allPossible(black.line, black.col, board)) {
-                    play(piece, board);
-                    if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            default:
-                break;
+        for (auto& piece: AllPieces::allPossibleBlack(black, board)) {
+            play(piece, board);
+            if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
+            unplay(piece, board);
         }
     }
 
@@ -226,57 +178,10 @@ std::vector<chess_move_t> GameHelper::AllPossibleMovesWhite(chess_board_t& board
     std::vector<chess_move_t> moves;
 
     for (auto& white: board.white_pieces) {
-        switch (white.piece) {
-            case PAWN:
-                for (auto& piece: Pawn::allPossibleWhite(white.line, white.col, board)) {
-                    play(piece, board);
-                    if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case ROOK:
-                for (auto& piece: Rook::allPossible(white.line, white.col, board)) {
-                    play(piece, board);
-                    if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case KNIGHT:
-                for (auto& piece: Knight::allPossible(white.line, white.col, board)) {
-                    play(piece, board);
-                    if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case BISHOP:
-                for (auto& piece: Bishop::allPossible(white.line, white.col, board)) {
-                    play(piece, board);
-                    if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case KING:
-                for (auto& piece: King::allPossible(white.line, white.col, board)) {
-                    play(piece, board);
-                    if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            case QUEEN:
-                for (auto& piece: Queen::allPossible(white.line, white.col, board)) {
-                    play(piece, board);
-                    if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
-                    unplay(piece, board);
-                }
-                break;
-
-            default:
-                break;
+        for (auto& piece: AllPieces::allPossibleWhite(white, board)) {
+            play(piece, board);
+            if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
+            unplay(piece, board);
         }
     }
 

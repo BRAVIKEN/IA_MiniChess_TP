@@ -48,6 +48,8 @@ void chess_board_t::add_white_piece(int _piece, int _i, int _j) {
 }
 
 void chess_board_t::init_pieces() {
+    add_black_piece(KING, 2, 0);
+    add_white_piece(KING, 2, 4);
     for (int i = 0; i < nbl; i++)
         for (int j = 0; j < nbc; j++) {
             if (board[i][j] == BLACK_P)
@@ -66,10 +68,10 @@ void chess_board_t::init_pieces() {
                 add_black_piece(BISHOP, i, j);
             else if (board[i][j] == WHITE_B)
                 add_white_piece(BISHOP, i, j);
-            else if (board[i][j] == BLACK_K)
-                add_black_piece(KING, i, j);
-            else if (board[i][j] == WHITE_K)
-                add_white_piece(KING, i, j);
+            // else if (board[i][j] == BLACK_K)
+            //     add_black_piece(KING, i, j);
+            // else if (board[i][j] == WHITE_K)
+            //     add_white_piece(KING, i, j);
             else if (board[i][j] == BLACK_Q)
                 add_black_piece(QUEEN, i, j);
             else if (board[i][j] == WHITE_Q)

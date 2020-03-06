@@ -33,10 +33,18 @@ int main(int _ac, char** _av) {
 	}*/
 
     auto black(GameHelper::AllPossibleMovesBlack(chess));
-    auto white(GameHelper::AllPossibleMovesWhite(chess));
     std::cout << black.size() << std::endl;
+    for (auto mb: black){
+        std::cout << "black ";
+        mb.print();
+    }
+
+    auto white(GameHelper::AllPossibleMovesWhite(chess));
     std::cout << white.size() << std::endl;
-    // for (auto mb: black) mb.print();
+    for (auto mb: white){
+        std::cout << "white ";
+        mb.print();
+    }
 
 	chess_move_t m = IA::MC(chess,WHITE,1000);
 	chess.board[m.line_i][m.col_i] = chess.board[m.line_f][m.col_f];
