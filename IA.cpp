@@ -59,12 +59,12 @@ bool IA::blackPlayOneRandomMove(chess_board_t& board){
 
 int IA::randomGame(bool turn, chess_board_t& board){
 
-	//true = white, false = black
+	//false = white, true = black
 
 	int depth(0);
 	while(depth/2 < MAX_NB_MOVES){
 		
-		if(turn){
+		if(!turn){
 			if(!whitePlayOneRandomMove(board)){
 				//black won
 				return 1;

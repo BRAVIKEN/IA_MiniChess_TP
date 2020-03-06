@@ -6,7 +6,7 @@
 bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 	
 	bool first;
-
+	
 	/*diag*/
 	first = true;
 	for (int i(x - 1), j(y - 1); i >= 0 && j >= 0; --i, --j) {
@@ -14,8 +14,12 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == WHITE_K) return true;
 			first = false;
 		}
-        if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+        	if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
+        		return true;
+			break;
+		}
+
     }
 
 	first = true;
@@ -24,8 +28,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == WHITE_K || board.board[j][i] == WHITE_P) return true;
 			first = false;
 		}
-    	if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -34,8 +41,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == WHITE_K) return true;
 			first = false;
 		}
-        if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -44,8 +54,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == WHITE_K || board.board[j][i] == WHITE_P) return true;
 			first = false;
 		}
-        if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == WHITE_Q || board.board[j][i] == WHITE_B)
+				return true;
+			break;
+		}
     }
 
 
@@ -56,8 +69,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[y][i] == WHITE_K) return true;
 			first = false;
 		}
-        if (board.board[y][i] == WHITE_Q || board.board[y][i] == WHITE_R)
-        	return true;
+		if(board.board[y][i] != EMPTY){
+			if (board.board[y][i] == WHITE_Q || board.board[y][i] == WHITE_R)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -66,8 +82,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[y][i] == WHITE_K) return true;
 			first = false;
 		}
-        if (board.board[y][i] == WHITE_Q || board.board[y][i] == WHITE_R)
-        	return true;
+		if(board.board[y][i] != EMPTY){
+			if (board.board[y][i] == WHITE_Q || board.board[y][i] == WHITE_R)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -76,8 +95,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[i][x] == WHITE_K) return true;
 			first = false;
 		}
-        if (board.board[i][x] == WHITE_Q || board.board[i][x] == WHITE_R)
-        	return true;
+		if(board.board[i][x] != EMPTY){
+			if (board.board[i][x] == WHITE_Q || board.board[i][x] == WHITE_R)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -86,8 +108,11 @@ bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
 			if(board.board[i][x] == WHITE_K) return true;
 			first = false;
 		}
-        if (board.board[i][x] == WHITE_Q || board.board[i][x] == WHITE_R)
-        	return true;
+		if (board.board[i][x] != EMPTY) {
+			if (board.board[i][x] == WHITE_Q || board.board[i][x] == WHITE_R)
+				return true;
+			break;
+		}
     }
 
 
@@ -128,8 +153,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == BLACK_K || board.board[j][i] == BLACK_P) return true;
 			first = false;
 		}
-        if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -138,8 +166,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == BLACK_K) return true;
 			first = false;
 		}
-    	if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -148,8 +179,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == BLACK_K || board.board[j][i] == BLACK_P) return true;
 			first = false;
 		}
-        if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -158,8 +192,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[j][i] == BLACK_K) return true;
 			first = false;
 		}
-        if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
-        	return true;
+		if(board.board[j][i] != EMPTY){
+			if (board.board[j][i] == BLACK_Q || board.board[j][i] == BLACK_B)
+				return true;
+			break;
+		}
     }
 
     /*line*/
@@ -169,9 +206,14 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[y][i] == BLACK_K) return true;
 			first = false;
 		}
-        if (board.board[y][i] == BLACK_Q || board.board[y][i] == BLACK_R)
-        	return true;
+		if(board.board[y][i] != EMPTY){
+			if (board.board[y][i] == BLACK_Q || board.board[y][i] == BLACK_R)
+				return true;
+			break;
+			break;
+		}
     }
+	
 
 	first = true;
     for (int i(x - 1); i >= 0; --i) {
@@ -181,8 +223,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			}
 			first = false;
 		}
-        if (board.board[y][i] == BLACK_Q || board.board[y][i] == BLACK_R){
-			return true;
+		if(board.board[y][i] != EMPTY){
+			if (board.board[y][i] == BLACK_Q || board.board[y][i] == BLACK_R){
+				return true;
+			}
+			break;
 		}
     }
 
@@ -192,8 +237,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[i][x] == BLACK_K) return true;
 			first = false;
 		}
-        if (board.board[i][x] == BLACK_Q || board.board[i][x] == BLACK_R)
-        	return true;
+		if (board.board[i][x] != EMPTY) {
+			if (board.board[i][x] == BLACK_Q || board.board[i][x] == BLACK_R)
+				return true;
+			break;
+		}
     }
 
 	first = true;
@@ -202,8 +250,11 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 			if(board.board[i][x] == BLACK_K) return true;
 			first = false;
 		}
-        if (board.board[i][x] == BLACK_Q || board.board[i][x] == BLACK_R)
-        	return true;
+		if (board.board[i][x] != EMPTY) {
+        	if (board.board[i][x] == BLACK_Q || board.board[i][x] == BLACK_R)
+        		return true;
+			break;
+		}
     }
 
 
@@ -250,6 +301,57 @@ bool GameHelper::isEquality(chess_board_t const& board){
 
 }
 
+int GameHelper::whoWon(chess_board_t& board) {
+
+
+	for (auto& black: board.black_pieces) {
+
+		if(black.piece == -1) continue;
+
+        for (auto& piece: AllPieces::allPossibleBlack(black, board)) {
+			play(piece, board);
+			
+			if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)){
+				unplay(piece, board);
+				goto afterBlackFor;
+			}
+			
+			unplay(piece, board);
+        }
+
+    }
+
+	return WHITE;
+
+	afterBlackFor:
+	
+
+    for (auto& white: board.white_pieces) {
+
+		if(white.piece == -1) continue;
+
+        for (auto& piece: AllPieces::allPossibleWhite(white, board)) {
+			
+			play(piece, board);
+			
+			if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)){
+				unplay(piece, board);
+				goto afterWhiteFor;
+			}
+			
+			unplay(piece, board);
+
+        }
+
+    }
+
+	return BLACK;
+
+	afterWhiteFor:
+	
+	return -1;
+
+}
 
 std::vector<chess_move_t> GameHelper::AllPossibleMovesBlack(chess_board_t& board) {
 	std::vector<chess_move_t> moves;
@@ -259,9 +361,11 @@ std::vector<chess_move_t> GameHelper::AllPossibleMovesBlack(chess_board_t& board
 		if(black.piece == -1) continue;
 
         for (auto& piece: AllPieces::allPossibleBlack(black, board)) {
+
             play(piece, board);
             if (!checkBlack(board.black_pieces[0].col, board.black_pieces[0].line, board)) moves.emplace_back(piece);
-            unplay(piece, board);
+
+			unplay(piece, board);
         }
     }
 

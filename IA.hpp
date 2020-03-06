@@ -33,7 +33,7 @@ class IA {
 		static void getBoardsFromDepth(chess_board_t board, int depth, int maxDepth,chess_move_t move, std::vector<std::pair<chess_board_t,chess_move_t>>& allBoards, int color);
 
 
-		static chess_move_t MCTS(chess_board_t& board, int playoutNB, int color);
+		static chess_move_t MCTS(int playoutNB, int color, chess_board_t const& board);
 		
 	};
 

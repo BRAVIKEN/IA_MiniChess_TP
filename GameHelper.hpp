@@ -28,7 +28,7 @@ class GameHelper {
 		 * @return True if their is an equality, false otherwise
 		 */
 		static bool isEquality(chess_board_t const& board);
-
+		static int whoWon(chess_board_t& board);
 
 		/**
 		 * Return all the possible move of the color
