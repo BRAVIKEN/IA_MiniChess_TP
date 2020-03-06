@@ -23,9 +23,22 @@ int main(int _ac, char** _av) {
     chess.print_board_with_color();
 
 	//IA::randomGame(chess);
-	chess_move_t t= IA::MC(chess,BLACK,1000,1);
-	GameHelper::play(t,chess);
-	chess.print_board_with_color();
+	while(1){
+		/*std::cout << "BLANC A JOUE" << std::endl;
+		chess_move_t w= IA::MC(chess,WHITE,100,1);
+		GameHelper::play(w,chess);
+		chess.print_board_with_color();
+		if(!IA::whitePlayOneRandomMove(chess) || !IA::blackPlayOneRandomMove(chess)){
+			break;
+		}*/
+		std::cout << "NOIR A JOUE" << std::endl;
+		chess_move_t b= IA::MC(chess,BLACK,100,1);
+		GameHelper::play(b,chess);
+		chess.print_board_with_color();
+		if(!IA::whitePlayOneRandomMove(chess) || !IA::blackPlayOneRandomMove(chess)){
+			break;
+		}
+	}
 
 	//std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;
 

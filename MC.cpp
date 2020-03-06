@@ -1,5 +1,5 @@
 #include "IA.hpp"
-#include <iostream>
+
 chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int startDepth) {
     int bestScore(0);  //best number of winned game for a position
     chess_move_t bestMove;
@@ -7,7 +7,6 @@ chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int st
     if (color == WHITE) {
         IA::getBoardsFromDepth(board, startDepth, startDepth, chess_move_t(), allBoards, WHITE);
         for(auto &actualBoardAndMove : allBoards){
-            std::cout << actualBoardAndMove.second.col_i << " " << actualBoardAndMove.second.line_i << std::endl;
             for (const auto &currentPiece : actualBoardAndMove.first.white_pieces) {
                 for (const auto &currentMove : AllPieces::allPossibleWhite(currentPiece, actualBoardAndMove.first)) {  //for every move
                     int currentScore(0);
@@ -36,10 +35,9 @@ chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int st
             }
         }
         
-    } else {
+    } else if(color == BLACK){
         IA::getBoardsFromDepth(board, startDepth, startDepth, chess_move_t(), allBoards, BLACK);
         for(auto &actualBoardAndMove : allBoards){
-            std::cout << actualBoardAndMove.second.col_i << " " << actualBoardAndMove.second.line_i << std::endl;
             for (const auto &currentPiece : actualBoardAndMove.first.black_pieces) {
                 for (const auto &currentMove : AllPieces::allPossibleBlack(currentPiece, actualBoardAndMove.first)) {  //for every move
                     int currentScore(0);
@@ -68,7 +66,6 @@ chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int st
             }
         }
     }
-    std::cout << allBoards.size() << std::endl;
     return bestMove;
 }
 
@@ -78,7 +75,7 @@ void IA::getBoardsFromDepth(chess_board_t board, int depth, int maxDepth,chess_m
         allBoards.emplace_back(board,move);
         return;
     }
-    if(WHITE){
+    if(color == WHITE){
         for (const auto &currentPiece : board.white_pieces) {
             for (const auto &currentMove : AllPieces::allPossibleWhite(currentPiece, board)){
                 GameHelper::play(currentMove, board);
