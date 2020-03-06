@@ -27,7 +27,6 @@ bool IA::whitePlayOneRandomMove(chess_board_t& board){
 
 
 	//possibleMoves[selectedIndex].print();
-
 	return true;
 
 }
@@ -52,7 +51,6 @@ bool IA::blackPlayOneRandomMove(chess_board_t& board){
 
 
 	//possibleMoves[selectedIndex].print();
-
 	return true;
 
 }
@@ -63,7 +61,8 @@ bool IA::randomGame(chess_board_t& board){
 	//true = white, false = black
 	bool turn(true);
 
-	while(1){
+	int depth(0);
+	while(depth/2 < MAX_NB_MOVES){
 		
 		if(turn){
 			if(!whitePlayOneRandomMove(board)){
@@ -81,8 +80,10 @@ bool IA::randomGame(chess_board_t& board){
 		turn = !turn;
 
 		///DEBUG
-		board.print_board_with_color();
+		//board.print_board_with_color();
 		//std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+		++depth;
 
 	}
 
