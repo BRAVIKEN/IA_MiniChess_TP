@@ -161,7 +161,8 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 }
 
 std::vector<chess_move_t> GameHelper::AllPossibleMovesBlack(chess_board_t& board) {
-    std::vector<chess_move_t> moves;
+    
+	std::vector<chess_move_t> moves;
 
     for (auto& black: board.black_pieces) {
         switch (black.piece) {
@@ -282,8 +283,7 @@ std::vector<chess_move_t> GameHelper::AllPossibleMovesWhite(chess_board_t& board
     return moves;
 }
 
-void GameHelper::play(chess_move_t& piece, chess_board_t& board) {
-    piece.old_piece = board.board[piece.line_i][piece.col_i];
+void GameHelper::play(chess_move_t const& piece, chess_board_t& board) {
     board.board[piece.line_i][piece.col_i] = board.board[piece.line_f][piece.col_f];
     board.board[piece.line_f][piece.col_f] = EMPTY;
 }
