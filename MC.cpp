@@ -18,7 +18,7 @@ chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int st
                     for (int i(0); i < playoutNB; ++i) {
                         //play a game
                         //play, if black player is checkmate
-                        if(IA::randomGame(tmpBoard) == WHITE){
+                        if(IA::randomGame(true,tmpBoard) == WHITE){
                             currentScore++;
                         } 
 
@@ -49,7 +49,7 @@ chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int st
                     for (int i(0); i < playoutNB; ++i) {
                         //play a game
                         //play, if black player is checkmate
-                        if(IA::randomGame(tmpBoard) == BLACK){
+                        if(IA::randomGame(false,tmpBoard) == BLACK){
                             currentScore++;
                         } 
 
