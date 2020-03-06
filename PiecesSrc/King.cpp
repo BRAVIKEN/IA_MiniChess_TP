@@ -42,22 +42,22 @@ std::vector<chess_move_t> King::allPossible(int x, int y, chess_board_t const& b
     }
 
     //down left
-    if (sumPossible & 5)
+    if ((sumPossible & 5) == 5)
         if (Helper::colorDifference(x, y, x - 1, y - 1, board))
             toRet.emplace_back(x, y, x - 1, y - 1, board.board[y-1][x-1]);
 
     //down right
-    if (sumPossible & 6)
+    if ((sumPossible & 6) == 6)
         if (Helper::colorDifference(x, y, x + 1, y - 1, board))
             toRet.emplace_back(x, y, x + 1, y - 1, board.board[y-1][x+1]);
 
     //up left
-    if (sumPossible & 9)
+    if ((sumPossible & 9) == 9)
         if (Helper::colorDifference(x, y, x - 1, y + 1, board))
             toRet.emplace_back(x, y, x - 1, y + 1, board.board[y+1][x-1]);
 
     //up right
-    if (sumPossible & 10)
+    if ((sumPossible & 10) == 10)
         if (Helper::colorDifference(x, y, x + 1, y + 1, board))
             toRet.emplace_back(x, y, x + 1, y + 1, board.board[y+1][x+1]);
 

@@ -48,8 +48,8 @@ void chess_board_t::add_white_piece(int _piece, int _i, int _j) {
 }
 
 void chess_board_t::init_pieces() {
-    add_black_piece(KING, 2, 0);
-    add_white_piece(KING, 2, 4);
+    add_black_piece(KING, 0, 2);
+    add_white_piece(KING, 4, 2);
     for (int i = 0; i < nbl; i++)
         for (int j = 0; j < nbc; j++) {
             if (board[i][j] == BLACK_P)
