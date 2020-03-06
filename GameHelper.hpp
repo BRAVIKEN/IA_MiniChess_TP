@@ -17,11 +17,13 @@ class GameHelper {
 
 		///TO DO
 		//Fonction qui renvoie tout les coups possible de blanc et noir
-		static std::vector<chess_move_t> AllPossibleMovesWhite(chess_board_t const& board);
-		static std::vector<chess_move_t> AllPossibleMovesBlack(chess_board_t const& board);
+		static std::vector<chess_move_t> AllPossibleMovesBlack(chess_board_t& board);
+		static std::vector<chess_move_t> AllPossibleMovesWhite(chess_board_t& board);
 
 		///TODO
 		static int whiteScore(chess_board_t const& board);
 		static int blackScore(chess_board_t const& board);
-
+		
+		static void play(chess_move_t& piece, chess_board_t& board);
+		static void unplay(chess_move_t const& piece, chess_board_t& board);
 };
