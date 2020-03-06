@@ -34,7 +34,7 @@ void chess_board_t::init_silverman_4x5() {
 }
 
 void chess_board_t::add_black_piece(int _piece, int _i, int _j) {
-	boardToIndex[_i][_j] = -1 * (white_pieces.size()+1);
+	boardToIndex[_i][_j] = -1 * (black_pieces.size()+1);
     black_pieces.emplace_back(_piece, _i, _j);
     // black_pieces[nb_black_pieces].piece = _piece;
     // black_pieces[nb_black_pieces].line = _i;

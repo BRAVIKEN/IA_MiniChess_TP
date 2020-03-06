@@ -1,5 +1,6 @@
 
 #include "GameHelper.hpp"
+#include <iostream>
 
 
 bool GameHelper::checkBlack(int x, int y, chess_board_t const& board){
@@ -160,9 +161,10 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 	return false;
 }
 
+
 std::vector<chess_move_t> GameHelper::AllPossibleMovesBlack(chess_board_t& board) {
 	std::vector<chess_move_t> moves;
-
+	
     for (auto& black: board.black_pieces) {
 
 		if(black.piece == -1) continue;
@@ -184,7 +186,7 @@ std::vector<chess_move_t> GameHelper::AllPossibleMovesWhite(chess_board_t& board
 
 		if(white.piece == -1) continue;
 
-        for (auto& piece: AllPieces::allPossibleWhite(white, board)) {
+        for (auto& piece: AllPieces::allPossibleWhite(white, board)) {	
             play(piece, board);
             if (!checkWhite(board.white_pieces[0].col, board.white_pieces[0].line, board)) moves.emplace_back(piece);
             unplay(piece, board);
@@ -225,7 +227,7 @@ void GameHelper::play(chess_move_t const& move, chess_board_t& board) {
 
 	//If old piece wasn't empty
 	if(oldInTabIndex != 0){
-
+		// std::cout << "Killed\n";
 		if(oldInTabIndex < 0){
 			//black
 			oldInTabIndex = (-1 * oldInTabIndex) - 1;
@@ -259,8 +261,8 @@ void GameHelper::unplay(chess_move_t const& move, chess_board_t& board) {
 	board.boardToIndex[move.line_f][move.col_f] = inTabIndex;
 
 	//RE créer ANCIENNE PIECE
-	if(move.old_piece != 13){
-
+	if(move.old_piece != 12){
+		// std::cout << "Old piece presente a remettre\n";
 		int color = Helper::getColor(move.col_i, move.line_i, board);
 		int index;
 

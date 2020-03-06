@@ -4,9 +4,9 @@ int Helper::getColor(int x, int y, chess_board_t const& board) {
     if (board.board[y][x] == 12) return -1;
 
     if (board.board[y][x] & 1) {
-        return WHITE;
-    } else {
         return BLACK;
+    } else {
+        return WHITE;
     }
 }
 

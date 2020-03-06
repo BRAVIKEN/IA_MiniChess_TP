@@ -43,7 +43,7 @@ struct chess_piece_t {
 struct chess_move_t {
 	chess_move_t() {}
     chess_move_t(int xFrom, int yFrom, int xTo, int yTo)
-	: col_f(xFrom), line_f(yFrom), col_i(xTo), line_i(yTo), old_piece(13) {}
+	: col_f(xFrom), line_f(yFrom), col_i(xTo), line_i(yTo), old_piece(12) {}
 
     chess_move_t(int xFrom, int yFrom, int xTo, int yTo, int oPiece)
 	: col_f(xFrom), line_f(yFrom), col_i(xTo), line_i(yTo), old_piece(oPiece) {}
