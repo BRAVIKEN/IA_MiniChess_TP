@@ -17,10 +17,11 @@ class IA {
 
 		/**
 		 * Play a random game.
+		 * @param turn If it's true, white start. Black start otherwise.
 		 * 
 		 * @return 0 if white won, 1 if black won et -1 si match nul ou timeout.
 		 */
-		static int randomGame(chess_board_t& board);
+		static int randomGame(bool turn, chess_board_t& board);
 
 
 		/*

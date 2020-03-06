@@ -31,6 +31,7 @@ bool IA::whitePlayOneRandomMove(chess_board_t& board){
 
 }
 
+
 bool IA::blackPlayOneRandomMove(chess_board_t& board){
 
 	std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesBlack(board);
@@ -55,11 +56,10 @@ bool IA::blackPlayOneRandomMove(chess_board_t& board){
 
 }
 
-//white 0, black 1, -1 = match nul ou timeout.
-int IA::randomGame(chess_board_t& board){
+
+int IA::randomGame(bool turn, chess_board_t& board){
 
 	//true = white, false = black
-	bool turn(true);
 
 	int depth(0);
 	while(depth/2 < MAX_NB_MOVES){
@@ -80,13 +80,13 @@ int IA::randomGame(chess_board_t& board){
 		turn = !turn;
 
 		///DEBUG
-		//board.print_board_with_color();
+		board.print_board_with_color();
 		//std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 		++depth;
 
 	}
-
+	std::cout << "overtime\n";
 	return -1;
 
 
