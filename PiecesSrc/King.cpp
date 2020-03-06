@@ -12,7 +12,7 @@ std::vector<chess_move_t> King::allPossible(int x, int y, chess_board_t const& b
     //can left
     if (x > 0) {
         if (Helper::colorDifference(x, y, x - 1, y, board))
-            toRet.emplace_back(x, y, x - 1, y);
+            toRet.emplace_back(x, y, x - 1, y, board.board[y][x-1]);
 
         sumPossible += 1;
     }
@@ -20,7 +20,7 @@ std::vector<chess_move_t> King::allPossible(int x, int y, chess_board_t const& b
     //can right
     if (x < board.nbc - 1) {
         if (Helper::colorDifference(x, y, x + 1, y, board))
-            toRet.emplace_back(x, y, x + 1, y);
+            toRet.emplace_back(x, y, x + 1, y, board.board[y][x+1]);
 
         sumPossible += 2;
     }
@@ -28,7 +28,7 @@ std::vector<chess_move_t> King::allPossible(int x, int y, chess_board_t const& b
     //can down
     if (y > 0) {
         if (Helper::colorDifference(x, y, x, y - 1, board))
-            toRet.emplace_back(x, y, x, y - 1);
+            toRet.emplace_back(x, y, x, y - 1, board.board[y-1][x]);
 
         sumPossible += 4;
     }
@@ -36,7 +36,7 @@ std::vector<chess_move_t> King::allPossible(int x, int y, chess_board_t const& b
     //can up
     if (y < board.nbl - 1) {
         if (Helper::colorDifference(x, y, x, y + 1, board))
-            toRet.emplace_back(x, y, x, y + 1);
+            toRet.emplace_back(x, y, x, y + 1, board.board[y+1][x]);
 
         sumPossible += 8;
     }
@@ -44,22 +44,22 @@ std::vector<chess_move_t> King::allPossible(int x, int y, chess_board_t const& b
     //down left
     if (sumPossible & 5)
         if (Helper::colorDifference(x, y, x - 1, y - 1, board))
-            toRet.emplace_back(x, y, x - 1, y - 1);
+            toRet.emplace_back(x, y, x - 1, y - 1, board.board[y-1][x-1]);
 
     //down right
     if (sumPossible & 6)
         if (Helper::colorDifference(x, y, x + 1, y - 1, board))
-            toRet.emplace_back(x, y, x + 1, y - 1);
+            toRet.emplace_back(x, y, x + 1, y - 1, board.board[y-1][x+1]);
 
     //up left
     if (sumPossible & 9)
         if (Helper::colorDifference(x, y, x - 1, y + 1, board))
-            toRet.emplace_back(x, y, x - 1, y + 1);
+            toRet.emplace_back(x, y, x - 1, y + 1, board.board[y+1][x-1]);
 
     //up right
     if (sumPossible & 10)
         if (Helper::colorDifference(x, y, x + 1, y + 1, board))
-            toRet.emplace_back(x, y, x + 1, y + 1);
+            toRet.emplace_back(x, y, x + 1, y + 1, board.board[y+1][x+1]);
 
     return toRet;
 }

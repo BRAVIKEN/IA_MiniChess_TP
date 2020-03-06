@@ -7,7 +7,7 @@ std::vector<chess_move_t> Bishop::allPossible(int x, int y, chess_board_t const&
     for (int i(x - 1), j(y - 1); i >= 0 && j >= 0; --i, --j) {
         if (board.board[j][i] != EMPTY) {
             if (Helper::colorDifference(x, y, i, j, board)) {
-                toReturn.emplace_back(x, y, i, j);
+                toReturn.emplace_back(x, y, i, j, board.board[j][i]);
             }
 
             break;
@@ -20,7 +20,7 @@ std::vector<chess_move_t> Bishop::allPossible(int x, int y, chess_board_t const&
     for (int i(x - 1), j(y + 1); i >= 0 && j < board.nbl; --i, ++j) {
         if (board.board[j][i] != EMPTY) {
             if (Helper::colorDifference(x, y, i, j, board)) {
-                toReturn.emplace_back(x, y, i, j);
+                toReturn.emplace_back(x, y, i, j, board.board[j][i]);
             }
 
             break;
@@ -33,7 +33,7 @@ std::vector<chess_move_t> Bishop::allPossible(int x, int y, chess_board_t const&
     for (int i(x + 1), j(y - 1); i < board.nbc && j >= 0; ++i, --j) {
         if (board.board[j][i] != EMPTY) {
             if (Helper::colorDifference(x, y, i, j, board)) {
-                toReturn.emplace_back(x, y, i, j);
+                toReturn.emplace_back(x, y, i, j, board.board[j][i]);
             }
 
             break;
@@ -46,7 +46,7 @@ std::vector<chess_move_t> Bishop::allPossible(int x, int y, chess_board_t const&
     for (int i(x + 1), j(y + 1); i < board.nbc && j < board.nbl; ++i, ++j) {
         if (board.board[j][i] != EMPTY) {
             if (Helper::colorDifference(x, y, i, j, board)) {
-                toReturn.emplace_back(x, y, i, j);
+                toReturn.emplace_back(x, y, i, j, board.board[j][i]);
             }
 
             break;

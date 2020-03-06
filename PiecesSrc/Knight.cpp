@@ -4,23 +4,23 @@ std::vector<chess_move_t> Knight::allPossible(int x, int y, chess_board_t const&
     std::vector<chess_move_t> moves;
 
     if (x + 2 < board.nbc) {
-        if (y + 1 < board.nbl && Helper::colorDifference(x, y, x + 2, y + 1, board)) moves.emplace_back(x, y, x + 2, y + 1);
-        if (y - 1 >= 0 && Helper::colorDifference(x, y, x + 2, y - 1, board)) moves.emplace_back(x, y, x + 2, y - 1);
+        if (y + 1 < board.nbl && Helper::colorDifference(x, y, x + 2, y + 1, board)) moves.emplace_back(x, y, x + 2, y + 1, board.board[y+1][x+2]);
+        if (y - 1 >= 0 && Helper::colorDifference(x, y, x + 2, y - 1, board)) moves.emplace_back(x, y, x + 2, y - 1, board.board[y-1][x+2]);
     }
 
     if (x - 2 >= 0) {
-        if (y + 1 < board.nbl && Helper::colorDifference(x, y, x - 2, y + 1, board)) moves.emplace_back(x, y, x - 2, y + 1);
-        if (y - 1 >= 0 && Helper::colorDifference(x, y, x - 2, y - 1, board)) moves.emplace_back(x, y, x - 2, y - 1);
+        if (y + 1 < board.nbl && Helper::colorDifference(x, y, x - 2, y + 1, board)) moves.emplace_back(x, y, x - 2, y + 1, board.board[y+1][x-2]);
+        if (y - 1 >= 0 && Helper::colorDifference(x, y, x - 2, y - 1, board)) moves.emplace_back(x, y, x - 2, y - 1, board.board[y-1][x-2]);
     }
 
     if (y + 2 < board.nbl) {
-        if (x + 1 < board.nbc && Helper::colorDifference(x, y, x + 1, y + 2, board)) moves.emplace_back(x, y, x + 1, y + 2);
-        if (x - 1 >= 0 && Helper::colorDifference(x, y, x - 1, y + 2, board)) moves.emplace_back(x, y, x - 1, y + 2);
+        if (x + 1 < board.nbc && Helper::colorDifference(x, y, x + 1, y + 2, board)) moves.emplace_back(x, y, x + 1, y + 2, board.board[y+2][x+1]);
+        if (x - 1 >= 0 && Helper::colorDifference(x, y, x - 1, y + 2, board)) moves.emplace_back(x, y, x - 1, y + 2, board.board[y+2][x-1]);
     }
 
     if (y - 2 >= 0) {
-        if (x + 1 < board.nbc && Helper::colorDifference(x, y, x + 1, y - 2, board)) moves.emplace_back(x, y, x + 1, y - 2);
-        if (x - 1 >= 0 && Helper::colorDifference(x, y, x - 1, y - 2, board)) moves.emplace_back(x, y, x - 1, y - 2);
+        if (x + 1 < board.nbc && Helper::colorDifference(x, y, x + 1, y - 2, board)) moves.emplace_back(x, y, x + 1, y - 2, board.board[y-2][x+1]);
+        if (x - 1 >= 0 && Helper::colorDifference(x, y, x - 1, y - 2, board)) moves.emplace_back(x, y, x - 1, y - 2, board.board[y-2][x-1]);
     }
 
     return moves;

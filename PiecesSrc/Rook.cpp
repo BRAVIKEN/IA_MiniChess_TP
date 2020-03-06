@@ -7,7 +7,7 @@ std::vector<chess_move_t> Rook::allPossible(int x, int y, chess_board_t const& b
     for (int i(x + 1); i < board.nbc; ++i) {
         if (board.board[y][i] != EMPTY) {
             if (Helper::colorDifference(x, y, i, y, board)) {
-                toRet.emplace_back(x, y, i, y);
+                toRet.emplace_back(x, y, i, y, board.board[y][i]);
             }
 
             break;
@@ -20,7 +20,7 @@ std::vector<chess_move_t> Rook::allPossible(int x, int y, chess_board_t const& b
     for (int i(x - 1); i >= 0; --i) {
         if (board.board[y][i] != EMPTY) {
             if (Helper::colorDifference(x, y, i, y, board)) {
-                toRet.emplace_back(x, y, i, y);
+                toRet.emplace_back(x, y, i, y, board.board[y][i]);
             }
 
             break;
@@ -33,7 +33,7 @@ std::vector<chess_move_t> Rook::allPossible(int x, int y, chess_board_t const& b
     for (int i(y + 1); i < board.nbl; ++i) {
         if (board.board[i][x] != EMPTY) {
             if (Helper::colorDifference(x, y, x, i, board)) {
-                toRet.emplace_back(x, y, x, i);
+                toRet.emplace_back(x, y, x, i, board.board[i][x]);
             }
 
             break;
@@ -46,7 +46,7 @@ std::vector<chess_move_t> Rook::allPossible(int x, int y, chess_board_t const& b
     for (int i(y - 1); i >= 0; --i) {
         if (board.board[i][x] != EMPTY) {
             if (Helper::colorDifference(x, y, x, i, board)) {
-                toRet.emplace_back(x, y, x, i);
+                toRet.emplace_back(x, y, x, i, board.board[i][x]);
             }
 
             break;
