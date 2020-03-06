@@ -233,9 +233,20 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 
 bool GameHelper::isEquality(chess_board_t const& board){
 
-	if(board.black_pieces.size() == 1 && board.white_pieces.size() == 1) return true;
+	for(int i(1); i < board.black_pieces.size(); ++i){
 
-	return false;
+		if(board.black_pieces[i].piece != -1) return false;
+
+	}
+
+	for(int i(1); i < board.white_pieces.size(); ++i){
+
+		if(board.white_pieces[i].piece != -1) return false;
+
+	}
+
+
+	return true;
 
 }
 

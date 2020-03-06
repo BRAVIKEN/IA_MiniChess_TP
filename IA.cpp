@@ -76,17 +76,22 @@ int IA::randomGame(bool turn, chess_board_t& board){
 				return 0;
 			}
 		}
+
+		//board.print_board_with_color();
+
+		if(GameHelper::isEquality(board)) return -1;
 		
+
 		turn = !turn;
 
 		///DEBUG
-		board.print_board_with_color();
 		//std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
 
 		++depth;
 
 	}
-	std::cout << "overtime\n";
+	//std::cout << "overtime\n";
 	return -1;
 
 
