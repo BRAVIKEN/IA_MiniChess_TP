@@ -22,8 +22,10 @@ int main(int _ac, char** _av) {
     chess.init_silverman_4x5();
     chess.print_board_with_color();
 
-	IA::randomGame(chess);
-	
+	//IA::randomGame(chess);
+	chess_move_t t= IA::MC(chess,BLACK,1000,1);
+	GameHelper::play(t,chess);
+	chess.print_board_with_color();
 
 	//std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;
 
@@ -40,12 +42,12 @@ int main(int _ac, char** _av) {
     //     mb.print();
     // }
 
-    auto white(GameHelper::AllPossibleMovesWhite(chess));
+    /*auto white(GameHelper::AllPossibleMovesWhite(chess));
     std::cout << white.size() << std::endl;
     for (auto mb: white){
         std::cout << "white ";
         mb.print();
-    }
+    }*/
 
 	// chess_move_t m = IA::MC(chess,WHITE,1000);
 	// chess.board[m.line_i][m.col_i] = chess.board[m.line_f][m.col_f];
