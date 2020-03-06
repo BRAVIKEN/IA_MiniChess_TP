@@ -4,8 +4,10 @@ void chess_board_t::init_silverman_4x5() {
     nbl = 5;
     nbc = 4;
     for (int i = 0; i < MAX_LINES; i++)
-        for (int j = 0; j < MAX_COLS; j++)
+        for (int j = 0; j < MAX_COLS; j++){
             board[i][j] = EMPTY;
+			boardToIndex[i][j] = 0;
+		}
 
     board[0][0] = BLACK_R;
     board[1][0] = BLACK_P;
@@ -32,6 +34,7 @@ void chess_board_t::init_silverman_4x5() {
 }
 
 void chess_board_t::add_black_piece(int _piece, int _i, int _j) {
+	boardToIndex[_i][_j] = -1 * (white_pieces.size()+1);
     black_pieces.emplace_back(_piece, _i, _j);
     // black_pieces[nb_black_pieces].piece = _piece;
     // black_pieces[nb_black_pieces].line = _i;
@@ -40,6 +43,7 @@ void chess_board_t::add_black_piece(int _piece, int _i, int _j) {
 }
 
 void chess_board_t::add_white_piece(int _piece, int _i, int _j) {
+	boardToIndex[_i][_j] = white_pieces.size()+1;
     white_pieces.emplace_back(_piece, _i, _j);
     // white_pieces[nb_white_pieces].piece = _piece;
     // white_pieces[nb_white_pieces].line = _i;

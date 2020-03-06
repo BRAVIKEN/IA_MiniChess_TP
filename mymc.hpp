@@ -82,7 +82,12 @@ struct chess_board_t {
     int nbl;
     int nbc;
 
+
     int board[MAX_LINES][MAX_COLS];
+
+	//This will contain the index + 1 of the pieces in the white_pieces and black_pieces (black will be negative)
+    int boardToIndex[MAX_LINES][MAX_COLS];
+
     int turn;
 
     // chess_piece_t white_pieces[2 * MAX_LINES];
@@ -102,13 +107,16 @@ struct chess_board_t {
 	 * 
 	 */
     std::vector<chess_piece_t> white_pieces;
+    std::vector<int> whiteHole;
 
     // chess_piece_t black_pieces[2 * MAX_LINES];
     // int nb_black_pieces;
     //int nb_moves;
 
     std::vector<chess_piece_t> black_pieces;
-    std::vector<chess_move_t> moves;
+	std::vector<int> blackHole;
+    
+	std::vector<chess_move_t> moves;
     int moves_update_turn;
 
     void init_silverman_4x5();

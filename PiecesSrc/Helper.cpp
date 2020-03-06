@@ -31,4 +31,37 @@ std::vector<chess_piece_t> Helper::getPiecePos(chess_board_t const& board, int p
 
 }
 
+int Helper::doubleTypeToUniqueType(int doubleType){
+
+	switch(doubleType){
+
+		case 0:
+		case 1:
+			return 0;
+
+		case 2:
+		case 3:
+			return 1;
+
+		case 4:
+		case 5:
+			return 2;
+
+		case 6:
+		case 7:
+			return 3;
+
+		case 8:
+		case 9:
+			return 4;
+
+		case 10:
+		case 11:
+			return 5;
+
+
+	}
+
+}
+
 //#include <iostream> //debug

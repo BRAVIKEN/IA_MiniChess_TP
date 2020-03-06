@@ -5,7 +5,7 @@
 
 
 
-bool IA::whitePlayOneRandomMove(chess_board_t const& board){
+bool IA::whitePlayOneRandomMove(chess_board_t& board){
 
 	std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesWhite(board);
 
@@ -13,7 +13,7 @@ bool IA::whitePlayOneRandomMove(chess_board_t const& board){
 	if(possibleMoves.empty())
 		return false;
 
-	int selectedIndex = rand()%possibleMoves;
+	int selectedIndex = rand()%possibleMoves.size();
 
 	GameHelper::play(possibleMoves[selectedIndex], board);
 
@@ -21,7 +21,7 @@ bool IA::whitePlayOneRandomMove(chess_board_t const& board){
 
 }
 
-bool IA::blackPlayOneRandomMove(chess_board_t const& board){
+bool IA::blackPlayOneRandomMove(chess_board_t& board){
 
 	std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesBlack(board);
 
@@ -29,7 +29,7 @@ bool IA::blackPlayOneRandomMove(chess_board_t const& board){
 	if(possibleMoves.empty())
 		return false;
 
-	int selectedIndex = rand()%possibleMoves;
+	int selectedIndex = rand()%possibleMoves.size();
 
 	GameHelper::play(possibleMoves[selectedIndex], board);
 
@@ -38,7 +38,7 @@ bool IA::blackPlayOneRandomMove(chess_board_t const& board){
 }
 
 
-bool IA::randomGame(chess_board_t const& board){
+bool IA::randomGame(chess_board_t& board){
 
 	//true = white, false = black
 	bool turn(true);

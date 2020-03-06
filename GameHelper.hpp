@@ -1,4 +1,8 @@
 
+#ifndef GAMEHELPER_HPP
+#define GAMEHELPER_HPP
+
+
 #include <vector>
 
 #include "mymc.hpp"
@@ -27,3 +31,7 @@ class GameHelper {
 		static void play(chess_move_t const& piece, chess_board_t& board);
 		static void unplay(chess_move_t const& piece, chess_board_t& board);
 };
+
+
+
+#endif

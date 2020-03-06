@@ -12,15 +12,15 @@ class IA {
 	public:
 
 
-		static bool whitePlayOneRandomMove(chess_board_t const& board);
-		static bool blackPlayOneRandomMove(chess_board_t const& board);
+		static bool whitePlayOneRandomMove(chess_board_t& board);
+		static bool blackPlayOneRandomMove(chess_board_t& board);
 
 		/**
 		 * Play a random game.
 		 * 
 		 * @return True if white won, False if black won.
 		 */
-		static bool randomGame(chess_board_t const& board);
+		static bool randomGame(chess_board_t& board);
 
 
 		/*

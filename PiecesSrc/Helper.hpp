@@ -23,6 +23,8 @@ class Helper {
 	 */
     static bool colorDifference(int x1, int y1, int x2, int y2, chess_board_t const& board);
 
+	static int doubleTypeToUniqueType(int doubleType);
+
 	std::vector<chess_piece_t> getPiecePos(chess_board_t const& board, int piece);
 
 
