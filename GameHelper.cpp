@@ -231,6 +231,14 @@ bool GameHelper::checkWhite(int x, int y, chess_board_t const& board){
 	return false;
 }
 
+bool GameHelper::isEquality(chess_board_t const& board){
+
+	if(board.black_pieces.size() == 1 && board.white_pieces.size() == 1) return true;
+
+	return false;
+
+}
+
 
 std::vector<chess_move_t> GameHelper::AllPossibleMovesBlack(chess_board_t& board) {
 	std::vector<chess_move_t> moves;

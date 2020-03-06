@@ -12,23 +12,34 @@
 class GameHelper {
 
 	public:
+
+		/**
+		 * Verify if one color is in check.
+		 * Take the king position in param.
+		 * 
+		 * @return true if white or black is in check state.
+		 */
 		static bool checkBlack(int kingX, int kingY, chess_board_t const& board);
 		static bool checkWhite(int kingX, int kingY, chess_board_t const& board);
 
-		//TODO
-		static bool checkMateBlack(int kingX, int kingY, chess_board_t const& board);
-		static bool checkMateWhite(int kingX, int kingY, chess_board_t const& board);
+		/**
+		 *  Verify if their is an equality
+		 * 
+		 * @return True if their is an equality, false otherwise
+		 */
+		static bool isEquality(chess_board_t const& board);
 
-		///TO DO
-		//Fonction qui renvoie tout les coups possible de blanc et noir
+
+		/**
+		 * Return all the possible move of the color
+		 */ 
 		static std::vector<chess_move_t> AllPossibleMovesBlack(chess_board_t& board);
 		static std::vector<chess_move_t> AllPossibleMovesWhite(chess_board_t& board);
 
-		///TODO
-		static int whiteScore(chess_board_t const& board);
-		static int blackScore(chess_board_t const& board);
-		
+		//Play a move
 		static void play(chess_move_t const& piece, chess_board_t& board);
+		
+		//Unplay a move
 		static void unplay(chess_move_t const& piece, chess_board_t& board);
 };
 
