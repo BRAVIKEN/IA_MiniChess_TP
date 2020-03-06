@@ -55,7 +55,7 @@ bool IA::blackPlayOneRandomMove(chess_board_t& board){
 
 }
 
-//white 0, black 1, -1 = match nul ou timeout.
+//white gagne 0, black 1, -1 = match nul ou timeout.
 int IA::randomGame(chess_board_t& board){
 
 	//true = white, false = black

@@ -27,7 +27,10 @@ class IA {
 		**Return a movement determined by the Monte Carlo algorithme.
 		**It take the board of the game, and the color of the player.
 		*/
-		static chess_move_t MC(chess_board_t const& board, int color, int playoutNB);
+		static chess_move_t MC(const chess_board_t& board, int color, int playoutNB, int startDepth);
+
+		static void getBoardsFromDepth(chess_board_t board, int depth, int maxDepth,chess_move_t move, std::vector<std::pair<chess_board_t,chess_move_t>>& allBoards, int color);
+
 
 		static bool MCTS();
 
