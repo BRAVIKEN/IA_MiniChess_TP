@@ -24,7 +24,7 @@ class Timer{
 
 };
 
-bool Battle::BattleChronoFirstOne(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB, int nbGame){
+void Battle::BattleChronoFirstOne(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB, int nbGame){
 	
 	Timer myTimer;
 
@@ -113,7 +113,7 @@ bool Battle::BattleChronoFirstOne(chess_move_t (*firstFunc)(int, int, chess_boar
 }
 
 
-bool Battle::BattleTwo(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB){
+void Battle::BattleTwo(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB){
 
 	chess_board_t chess;
 
@@ -170,6 +170,5 @@ bool Battle::BattleTwo(chess_move_t (*firstFunc)(int, int, chess_board_t const&)
 
 	}
 
-	return true;
 
 }
