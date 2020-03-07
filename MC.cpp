@@ -1,8 +1,5 @@
 #include "IA.hpp"
 
-chess_move_t IA::startMC(int playoutNB, int color, chess_board_t const& board){
-	return MC(playoutNB, color, board);
-}
 
 chess_move_t IA::MC(int playoutNB, int color, chess_board_t const& board_){
     chess_board_t board(board_);
@@ -27,15 +24,15 @@ chess_move_t IA::MC(int playoutNB, int color, chess_board_t const& board_){
 
         GameHelper::play(currentMove, board);
 
-        chess_board_t tmpBoard(board);
 
         for (int i(0); i < finalPlayoutNumber; ++i) {
+        	
+			chess_board_t tmpBoard(board);
 
             if(IA::randomGame(nextPlayer,tmpBoard) == WHITE){
                 currentScore++;
             }
 
-            tmpBoard = board;
         }
 
         if (currentScore > bestScore) {
