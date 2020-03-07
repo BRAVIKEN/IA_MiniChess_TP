@@ -3,7 +3,7 @@
 #include "IA.hpp"
 
 
-#define CONSTANTE 1.4
+#define CONSTANTE 0.4
 
 
 struct Node{
