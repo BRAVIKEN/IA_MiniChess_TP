@@ -29,7 +29,7 @@ chess_move_t IA::MC(int playoutNB, int color, chess_board_t const& board_){
         	
 			chess_board_t tmpBoard(board);
 
-            if(IA::randomGame(nextPlayer,tmpBoard) == WHITE){
+            if(IA::randomGame(nextPlayer,tmpBoard) == color){
                 currentScore++;
             }
 
