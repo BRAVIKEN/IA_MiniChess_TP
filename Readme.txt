@@ -11,7 +11,14 @@ La fonction randomGame de la classe IA permet de jouer une partie de manière al
 
 MCTS (moyenne sur 5 parties): 
     Playout        temps
-      1k         0.0558976 s
-      10k        0.157949  s
-      100k       0.232009  s
-      1 000k     0.930106  s
+      1k         0.0482326 s
+      10k        0.190004  s
+      100k       0.243021  s
+      1 000k     0.695327  s
+
+MC   (moyenne sur 5 parties): 
+    Playout        temps
+      1k         0.0755016 s
+      10k        0.659467  s
+      100k       6.8697    s
+      1 000k     70.9257   s
