@@ -140,7 +140,7 @@ chess_move_t IA::MCTS(int playoutNB, int color, chess_board_t const& board) {
 	float best(0.0);
 	int bestIndex(0);
 
-	for(int i(0); i < tree.childs.size(); ++i){
+	for(size_t i(0); i < tree.childs.size(); ++i){
 		
 		float newValue((float)tree.childs[i].win / (float)tree.childs[i].total );
 

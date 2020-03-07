@@ -61,7 +61,7 @@ int Helper::doubleTypeToUniqueType(int doubleType){
 
 
 	}
-
+	return -1;
 }
 
 //#include <iostream> //debug
