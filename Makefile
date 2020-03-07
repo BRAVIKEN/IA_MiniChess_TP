@@ -4,7 +4,6 @@ SRC = s1.cpp \
 	GameHelper.cpp \
 	IA.cpp \
 	MC.cpp \
-	MC2.CPP \
 	MCTS.cpp \
 	Battle.cpp \
 	PiecesSrc/AllPieces.cpp \

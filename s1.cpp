@@ -30,8 +30,8 @@ int main(int _ac, char** _av) {
 	// Battle::BattleChronoFirstOne(IA::MCTS, IA::random, 100000, 2);
 	// std::cout << "MC : " << std::endl << std::endl;
 	// Battle::BattleChronoFirstOne(IA::startMC, IA::MCTS, 300, 1);
-	// std::cout << "MCTS BLANC vs MC NOIR " << std::endl << std::endl;
-	Battle::BattleTwo(IA::otherMC, IA::startMC, 1000);
+	std::cout << "MCTS BLANC vs MC NOIR " << std::endl << std::endl;
+	Battle::BattleTwo(IA::MC, IA::startMC, 1000);
 
 
     return 0;

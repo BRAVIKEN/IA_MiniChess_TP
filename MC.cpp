@@ -1,81 +1,57 @@
 #include "IA.hpp"
 
 chess_move_t IA::startMC(int playoutNB, int color, chess_board_t const& board){
-	return MC(board, color, playoutNB, 1);
+	return MC(playoutNB, color, board);
 }
 
-chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int startDepth) {
-    int bestScore(0);  //best number of winned game for a position
-    chess_move_t bestMove;
-    std::vector<std::pair<chess_board_t,chess_move_t>> allBoards;
+chess_move_t IA::MC(int playoutNB, int color, chess_board_t const& board_){
+    chess_board_t board(board_);
+    int bestScore(0);
+    chess_move_t* bestMove(nullptr);
 
-    if (color == WHITE) {
-        IA::getBoardsFromDepth(board, startDepth, startDepth, chess_move_t(), allBoards, WHITE);
-        for(auto &actualBoardAndMove : allBoards){
-            for (const auto &currentMove : GameHelper::AllPossibleMovesWhite(actualBoardAndMove.first)) {  //for every move
+    std::vector<chess_move_t> allMove;
+    int nextPlayer;
 
-                    int currentScore(0);
-
-                    GameHelper::play(currentMove, actualBoardAndMove.first);
-
-                    chess_board_t tmpBoard(actualBoardAndMove.first);
-
-                    for (int i(0); i < playoutNB; ++i) {
-                        //play a game
-                        //play, if black player is checkmate
-                        if(IA::randomGame(true,tmpBoard) == WHITE){
-                            currentScore++;
-                        } 
-
-                        tmpBoard = actualBoardAndMove.first;
-                    }
-
-                    if (currentScore > bestScore) {
-                        bestScore = currentScore;
-                        bestMove = actualBoardAndMove.second;
-                    }
-
-                    GameHelper::unplay(currentMove, actualBoardAndMove.first);
-                
-            }
-        }
-        
-    } else if(color == BLACK){
-        IA::getBoardsFromDepth(board, startDepth, startDepth, chess_move_t(), allBoards, BLACK);
-        for(auto &actualBoardAndMove : allBoards){
-            for (const auto &currentMove : GameHelper::AllPossibleMovesBlack(actualBoardAndMove.first)) {  //for every move
-
-                    int currentScore(0);
-
-                    GameHelper::play(currentMove, actualBoardAndMove.first);
-
-                    chess_board_t tmpBoard(actualBoardAndMove.first);
-
-                    
-                    for (int i(0); i < playoutNB; ++i) {
-                        //play a game
-                        //play, if black player is checkmate
-                        if(IA::randomGame(false,tmpBoard) == BLACK){
-                            currentScore++;
-                        } 
-
-                        tmpBoard = actualBoardAndMove.first;
-                    }
-
-                    if (currentScore > bestScore) {
-                        bestScore = currentScore;
-                        bestMove = actualBoardAndMove.second;
-                    }
-
-                    GameHelper::unplay(currentMove, actualBoardAndMove.first);
-                
-            }
-        }
+    if(color == WHITE){
+        allMove = GameHelper::AllPossibleMovesWhite(board);
+        nextPlayer = BLACK;
+    } else {
+        allMove = GameHelper::AllPossibleMovesBlack(board);
+        nextPlayer = WHITE;
     }
-    return bestMove;
+
+    int finalPlayoutNumber = playoutNB/allMove.size();
+
+    for (chess_move_t &currentMove : allMove) {
+        int currentScore(0);
+
+        GameHelper::play(currentMove, board);
+
+        chess_board_t tmpBoard(board);
+
+        for (int i(0); i < finalPlayoutNumber; ++i) {
+
+            if(IA::randomGame(nextPlayer,tmpBoard) == WHITE){
+                currentScore++;
+            }
+
+            tmpBoard = board;
+        }
+
+        if (currentScore > bestScore) {
+            bestScore = currentScore;
+            bestMove = &currentMove;
+        }
+
+        GameHelper::unplay(currentMove, board);
+    }
+
+    return (*bestMove);
 }
+
 
 /*
+** BUGGY!!!
 ** CARE, MUST USE THIS FUCTION WITH ODD NUMBER, ELSE IT WILL CRASH
 */
 void IA::getBoardsFromDepth(chess_board_t board, int depth, int maxDepth,chess_move_t move, std::vector<std::pair<chess_board_t,chess_move_t>>& allBoards, int color){
