@@ -172,3 +172,62 @@ void Battle::BattleTwo(chess_move_t (*firstFunc)(int, int, chess_board_t const&)
 
 
 }
+
+
+void Battle::BattleTwoDifferentPlayout(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB1, int playoutNB2){
+	
+	chess_board_t chess;
+
+    chess.init_silverman_4x5();
+    chess.print_board_with_color();
+
+	while(1){
+
+		chess_move_t move = firstFunc(playoutNB1, WHITE, chess);
+		GameHelper::play(move, chess);
+		chess.print_board_with_color();
+
+		if(GameHelper::isEquality(chess)){
+			std::cout << "Equality." << std::endl;
+			break;
+		}
+
+		int who = GameHelper::whoWon(chess);
+		if(who != -1){
+
+			if(who == WHITE){
+				std::cout << "White gagne." << std::endl;
+			}
+			else{
+				std::cout << "Black gagne." << std::endl;
+			}
+
+			break;
+
+		}
+
+		chess_move_t move2 = secondFunc(playoutNB2, BLACK, chess);
+		GameHelper::play(move2, chess);
+		chess.print_board_with_color();
+
+		
+		if(GameHelper::isEquality(chess)){
+			std::cout << "Equality." << std::endl;
+		}
+
+		who = GameHelper::whoWon(chess);
+		if(who != -1){
+
+			if(who == WHITE){
+				std::cout << "White gagne." << std::endl;
+			}
+			else{
+				std::cout << "Black gagne." << std::endl;
+			}
+
+			break;
+
+		}
+
+	}
+}

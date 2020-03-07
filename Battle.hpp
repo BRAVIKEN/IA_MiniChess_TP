@@ -12,6 +12,8 @@ class Battle {
 		 * select the playout
 		*/
 		static void BattleTwo(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB);
+		
+		static void BattleTwoDifferentPlayout(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB1, int playoutNB2);
 
 		/**
 		 * Battle between first func and second func.
