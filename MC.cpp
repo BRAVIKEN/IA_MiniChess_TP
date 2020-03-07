@@ -1,5 +1,9 @@
 #include "IA.hpp"
 
+chess_move_t IA::startMC(int playoutNB, int color, chess_board_t const& board){
+	return MC(board, color, playoutNB, 1);
+}
+
 chess_move_t IA::MC(const chess_board_t &board, int color, int playoutNB, int startDepth) {
     int bestScore(0);  //best number of winned game for a position
     chess_move_t bestMove;

@@ -20,13 +20,9 @@ bool IA::whitePlayOneRandomMove(chess_board_t& board){
 	int selectedIndex = rand()%possibleMoves.size();
 
 
-	int index (board.boardToIndex[possibleMoves[selectedIndex].line_f][possibleMoves[selectedIndex].col_f]);
-
 	GameHelper::play(possibleMoves[selectedIndex], board);
 
 
-
-	//possibleMoves[selectedIndex].print();
 	return true;
 
 }
@@ -39,19 +35,13 @@ bool IA::blackPlayOneRandomMove(chess_board_t& board){
 	//This mean white lost
 	if(possibleMoves.empty())
 		return false;
-
-
+	
 	int selectedIndex = rand()%possibleMoves.size();
-
-
-
-	int index(board.boardToIndex[possibleMoves[selectedIndex].line_f][possibleMoves[selectedIndex].col_f]);
 
 	
 	GameHelper::play(possibleMoves[selectedIndex], board);
 
 
-	//possibleMoves[selectedIndex].print();
 	return true;
 
 }

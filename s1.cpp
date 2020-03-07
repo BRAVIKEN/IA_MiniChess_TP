@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <iostream>
 
+#include "Battle.hpp"
+
 #include "mymc.hpp"
 #include "IA.hpp"
 #include "PiecesSrc/AllPieces.hpp"
@@ -13,8 +15,12 @@
 
 int main(int _ac, char** _av) {
 
-    srand(1);
-    srand(time(NULL));
+    //srand(1);
+
+	//1583539105
+	int KEY(time(NULL));
+
+    srand(KEY);
 
     chess_board_t chess;
     Helper h;
@@ -22,23 +28,29 @@ int main(int _ac, char** _av) {
     chess.init_silverman_4x5();
     chess.print_board_with_color();
 
+	Battle::BattleTwo(IA::MCTS, IA::startMC, 1000);
+
+	// 	player = 1 - player;
+
+	// }
+
 	//IA::randomGame(chess);
-	while(1){
-		std::cout << "BLANC A JOUE" << std::endl;
-		chess_move_t w= IA::MC(chess,WHITE,100,1);
-		GameHelper::play(w,chess);
-		chess.print_board_with_color();
-		if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
-			break;
-		}
-		std::cout << "NOIR A JOUE" << std::endl;
-		chess_move_t b= IA::MC(chess,BLACK,100,1);
-		GameHelper::play(b,chess);
-		chess.print_board_with_color();
-		if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
-			break;
-		}
-	}
+	// while(1){
+	// 	std::cout << "BLANC A JOUE" << std::endl;
+	// 	chess_move_t w= IA::MC(chess,WHITE,100,1);
+	// 	GameHelper::play(w,chess);
+	// 	chess.print_board_with_color();
+	// 	if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
+	// 		break;
+	// 	}
+	// 	std::cout << "NOIR A JOUE" << std::endl;
+	// 	chess_move_t b= IA::MC(chess,BLACK,100,1);
+	// 	GameHelper::play(b,chess);
+	// 	chess.print_board_with_color();
+	// 	if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
+	// 		break;
+	// 	}
+	// }
 
 	//std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;
 

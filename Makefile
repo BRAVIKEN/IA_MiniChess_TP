@@ -5,6 +5,7 @@ SRC = s1.cpp \
 	IA.cpp \
 	MC.cpp \
 	MCTS.cpp \
+	Battle.cpp \
 	PiecesSrc/AllPieces.cpp \
 	PiecesSrc/Helper.cpp \
 	PiecesSrc/Knight.cpp \
@@ -17,6 +18,7 @@ SRC = s1.cpp \
 INCLUDES = mymc.hpp \
 		GameHelper.hpp \
 		IA.hpp \
+		Battle.hpp \
 		PiecesSrc/AllPieces.hpp \
 		PiecesSrc/Helper.hpp \
 		PiecesSrc/Knight.hpp \

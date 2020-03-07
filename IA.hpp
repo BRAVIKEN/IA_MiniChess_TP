@@ -29,6 +29,7 @@ class IA {
 		**It take the board of the game, and the color of the player.
 		*/
 		static chess_move_t MC(const chess_board_t& board, int color, int playoutNB, int startDepth);
+		static chess_move_t startMC(int playoutNB, int color, chess_board_t const& board);
 
 		static void getBoardsFromDepth(chess_board_t board, int depth, int maxDepth,chess_move_t move, std::vector<std::pair<chess_board_t,chess_move_t>>& allBoards, int color);
 
