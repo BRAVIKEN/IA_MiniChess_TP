@@ -23,6 +23,7 @@ class IA {
 		 */
 		static int randomGame(bool turn, chess_board_t& board);
 
+		static chess_move_t random(int playoutNB, int color, chess_board_t const& board);
 
 		/*
 		**Return a movement determined by the Monte Carlo algorithme.

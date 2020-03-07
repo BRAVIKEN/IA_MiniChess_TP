@@ -28,58 +28,8 @@ int main(int _ac, char** _av) {
     chess.init_silverman_4x5();
     chess.print_board_with_color();
 
-	Battle::BattleTwo(IA::MCTS, IA::startMC, 1000);
-
-	// 	player = 1 - player;
-
-	// }
-
-	//IA::randomGame(chess);
-	// while(1){
-	// 	std::cout << "BLANC A JOUE" << std::endl;
-	// 	chess_move_t w= IA::MC(chess,WHITE,100,1);
-	// 	GameHelper::play(w,chess);
-	// 	chess.print_board_with_color();
-	// 	if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
-	// 		break;
-	// 	}
-	// 	std::cout << "NOIR A JOUE" << std::endl;
-	// 	chess_move_t b= IA::MC(chess,BLACK,100,1);
-	// 	GameHelper::play(b,chess);
-	// 	chess.print_board_with_color();
-	// 	if(GameHelper::AllPossibleMovesBlack(chess).empty() || GameHelper::AllPossibleMovesBlack(chess).empty()){
-	// 		break;
-	// 	}
-	// }
-
-	//std::cout << Rook::isPossible(1, 1, 2, 2, chess) << std::endl;
-
-    //je fou -1 pour le debug, j'assigne les cases trouvé a -1 comme ca ca affiche les possibilités
-	/*for(auto e : Queen::allPossible(1, 3, chess)){
-		std::cout << "X: " << e.col_i << " y: " << e.line_i << std::endl;
-		chess.board[e.line_i][e.col_i] = -1;
-	}*/
-
-    // auto black(GameHelper::AllPossibleMovesBlack(chess));
-    // std::cout << black.size() << std::endl;
-    // for (auto mb: black){
-    //     std::cout << "black ";
-    //     mb.print();
-    // }
-
-    /*auto white(GameHelper::AllPossibleMovesWhite(chess));
-    std::cout << white.size() << std::endl;
-    for (auto mb: white){
-        std::cout << "white ";
-        mb.print();
-    }*/
-
-	// chess_move_t m = IA::MC(chess,WHITE,1000);
-	// chess.board[m.line_i][m.col_i] = chess.board[m.line_f][m.col_f];
-	// chess.board[m.line_f][m.col_f] = EMPTY;
-	// chess.print_board_with_color();
-
-	//std::cout << h.checkWhite(2,0,chess) << std::endl;
+												//Profondeur max //Nb Game
+	Battle::BattleChronoFirstOne(IA::MCTS, IA::random, 1000, 2);
 
     return 0;
 }

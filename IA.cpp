@@ -86,3 +86,33 @@ int IA::randomGame(bool turn, chess_board_t& board){
 
 
 }
+
+chess_move_t IA::random(int playoutNB, int color, chess_board_t const& board){
+
+	chess_board_t boardCopy = board;
+
+	if(color == WHITE){
+
+		std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesWhite(boardCopy);
+
+		//You should never call this function if the game is done
+		if(possibleMoves.empty())
+			return chess_move_t(0, 0, 0, 0, 0);
+
+	
+		return possibleMoves[rand()%possibleMoves.size()];
+
+	}
+	else{
+		
+		std::vector<chess_move_t> possibleMoves = GameHelper::AllPossibleMovesBlack(boardCopy);
+
+		//You should never call this function if the game is done
+		if(possibleMoves.empty())
+			return chess_move_t(0, 0, 0, 0, 0);
+
+	
+		return possibleMoves[rand()%possibleMoves.size()];		
+
+	}
+}

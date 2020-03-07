@@ -9,6 +9,7 @@ class Battle {
 		
 		static bool BattleTwo(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB);
 
+		static bool BattleChronoFirstOne(chess_move_t (*firstFunc)(int, int, chess_board_t const&), chess_move_t (*secondFunc)(int, int, chess_board_t const&), int playoutNB, int nbGame);
 
 
 };

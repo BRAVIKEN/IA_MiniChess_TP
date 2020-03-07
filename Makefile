@@ -40,7 +40,7 @@ HEADER_ONLY = mymc.hpp \
 			PiecesSrc/Rook.hpp
 
 OBJ = $(SRC:.cpp=.o)
-CFLAGS = -O2 -Wall -pedantic -std=c++11
+CFLAGS = -O3 -Wall -pedantic -std=c++11
 LDFLAGS =
 
 chess.out:    $(OBJ) $(INCLUDES) 
