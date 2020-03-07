@@ -9,7 +9,7 @@ void chess_board_t::init_silverman_4x5() {
 			boardToIndex[i][j] = 0;
 		}
 
-    board[0][0] = BLACK_R;
+    board[0][0] = BLACK_N;
     board[1][0] = BLACK_P;
     board[0][1] = BLACK_Q;
     board[1][1] = BLACK_P;
@@ -17,7 +17,7 @@ void chess_board_t::init_silverman_4x5() {
     board[1][2] = BLACK_P;
     board[0][3] = BLACK_R;
     board[1][3] = BLACK_P;
-    board[4][0] = WHITE_R;
+    board[4][0] = WHITE_N;
     board[3][0] = WHITE_P;
     board[4][1] = WHITE_Q;
     board[3][1] = WHITE_P;
@@ -135,9 +135,9 @@ void chess_board_t::print_board_with_color() {
             else if (board[i][j] == WHITE_R)
                 printf("\x1B[34mr\x1B[39m");
             else if (board[i][j] == BLACK_N)
-                printf("K");
+                printf("N");
             else if (board[i][j] == WHITE_N)
-                printf("\x1B[34mk\x1B[39m");
+                printf("\x1B[34mn\x1B[39m");
             else if (board[i][j] == BLACK_B)
                 printf("B");
             else if (board[i][j] == WHITE_B)
