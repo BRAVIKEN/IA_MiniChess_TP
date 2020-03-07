@@ -7,6 +7,7 @@
 #include "GameHelper.hpp"
 
 
+//Petite classe de chrono simple prise sur internet
 class Timer{
 
 	public:
@@ -106,9 +107,8 @@ bool Battle::BattleChronoFirstOne(chess_move_t (*firstFunc)(int, int, chess_boar
 
 	endSum /= nbGame;
 
-	std::cout << "Temps moyen par coup sur " << nbGame << " partie(s) : " << endSum << std::endl;
+	std::cout << "Temps moyen par coup sur " << nbGame << " partie(s) : " << endSum << " secondes." << std::endl;
 
-	return true;
 
 }
 

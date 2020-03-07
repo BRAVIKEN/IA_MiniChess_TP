@@ -23,13 +23,16 @@ int main(int _ac, char** _av) {
     srand(KEY);
 
     chess_board_t chess;
-    Helper h;
 
     chess.init_silverman_4x5();
-    chess.print_board_with_color();
 
-												//Profondeur max //Nb Game
-	Battle::BattleChronoFirstOne(IA::MCTS, IA::random, 1000, 2);
+	std::cout << "MCTS : " << std::endl << std::endl;
+	Battle::BattleChronoFirstOne(IA::MCTS, IA::random, 100000, 2);
+	std::cout << "MC : " << std::endl << std::endl;
+	Battle::BattleChronoFirstOne(IA::startMC, IA::MCTS, 300, 1);
+	std::cout << "MCTS BLANC vs MC NOIR " << std::endl << std::endl;
+	Battle::BattleTwo(IA::MCTS, IA::startMC, 500);
+
 
     return 0;
 }
