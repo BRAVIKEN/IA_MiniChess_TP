@@ -35,6 +35,15 @@ class IA {
 
 
 		static chess_move_t MCTS(int playoutNB, int color, chess_board_t const& board);
+
+		static std::pair<int,chess_move_t> nested_MC(int _level, int _color, int _startColor, std::pair<int,chess_move_t> _scoreAndMove, bool start, chess_board_t const& _board);
+
+		static chess_move_t NMCS(int depth, int color, chess_board_t const& board);
+
+		static chess_move_t anytime_NMC(int _level, int _color, chess_board_t const& _board);
+
+
+		#include "IA.hpp"
 		
 	};
 
