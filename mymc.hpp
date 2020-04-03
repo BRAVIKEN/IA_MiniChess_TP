@@ -48,6 +48,16 @@ struct chess_move_t {
     chess_move_t(int xFrom, int yFrom, int xTo, int yTo, int oPiece)
 	: col_f(xFrom), line_f(yFrom), col_i(xTo), line_i(yTo), old_piece(oPiece) {}
 
+    bool operator==(const chess_move_t& m) const {
+        bool cf = m.col_f == col_f;
+        bool lf = m.line_f == line_f;
+        bool ci = m.col_i == col_i;
+        bool li = m.line_i == line_i;
+        bool op = m.old_piece == old_piece;
+
+        return cf && lf && ci && li && op;
+    }
+
     int col_f;
     int line_f;
     int col_i;
@@ -82,8 +92,8 @@ struct chess_board_t {
     int nbl;
     int nbc;
 
-
-    int board[MAX_LINES][MAX_COLS];
+    std::vector<std::vector<int>> board;
+    // int board[MAX_LINES][MAX_COLS];
 
 	//This will contain the index + 1 of the pieces in the white_pieces and black_pieces (black will be negative)
     int boardToIndex[MAX_LINES][MAX_COLS];

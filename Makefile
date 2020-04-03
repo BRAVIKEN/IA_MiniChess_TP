@@ -5,6 +5,7 @@ SRC = s1.cpp \
 	IA.cpp \
 	MC.cpp \
 	MCTS.cpp \
+	NMCS.cpp \
 	Battle.cpp \
 	PiecesSrc/AllPieces.cpp \
 	PiecesSrc/Helper.cpp \
